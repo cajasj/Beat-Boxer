@@ -1,0 +1,34 @@
+using UnityEngine;
+using System.Collections;
+
+public class BeatBoxerAttack : MonoBehaviour {
+    private bool jabAttack = false;
+
+    public Collider2D jabTrigger;
+    private Animator anim;
+
+    void Awake()
+    {
+        anim = gameObject.GetComponent<Animator>();
+        jabTrigger.enabled = false;
+    }
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        if (Input.GetKeyDown("j") && !jabAttack)
+        {
+            jabAttack = true;
+            jabTrigger.enabled = true;
+        }
+        if (jabAttack)
+        {
+            jabAttack = false;
+            jabTrigger.enabled = false;
+        }
+        anim.SetBool("jabAttack", jabAttack);
+    }
+}

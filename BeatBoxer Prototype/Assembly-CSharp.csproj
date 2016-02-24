@@ -54,9 +54,13 @@
      <Compile Include="Assets\Completed\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Completed\Scripts\Wall.cs" />
      <Compile Include="Assets\Scripts\BeatBoxerScript.cs" />
+     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\bbAttack.cs" />
+     <Compile Include="Assets\Scripts\courchScript.cs" />
+     <Compile Include="Assets\Scripts\disableTempCollider.cs" />
      <Compile Include="Assets\Scripts\enemyScript.cs" />
      <Compile Include="Assets\Scripts\jabTrigger.cs" />
+     <Compile Include="Assets\Scripts\nextStage.cs" />
      <Compile Include="Assets\scr.cs" />
      <None Include="Assets\Fonts\OFL.txt" />
  <Reference Include="UnityEngine.Advertisements">

@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 0c327315329076d48ab2ecee4e720723
+timeCreated: 1456200767
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: kickSpriteSheet_0
+    21300002: kickSpriteSheet_1
+    21300004: kickSpriteSheet_2
+    21300006: kickSpriteSheet_3
+    21300008: kickSpriteSheet_4
+    21300010: kickSpriteSheet_5
+    21300012: kickSpriteSheet_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: kickSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 17
+        width: 86
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kickSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 16
+        width: 76
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kickSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 16
+        width: 74
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kickSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 16
+        width: 95
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kickSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 16
+        width: 75
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kickSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 14
+        width: 82
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kickSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 16
+        width: 81
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

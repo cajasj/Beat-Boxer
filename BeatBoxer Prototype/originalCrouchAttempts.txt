@@ -1,0 +1,8 @@
+if (Input.GetKey(KeyCode.LeftControl))
+        {
+            animx.SetBool("crouch", true);
+        }
+        else
+        {
+            animx.SetBool("crouch", false);
+        }

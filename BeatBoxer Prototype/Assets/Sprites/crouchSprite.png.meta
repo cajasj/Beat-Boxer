@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: cebc7be39541be647a7e27dee4652632
+timeCreated: 1456207159
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: crouchSprite_0
+    21300002: crouchSprite_1
+    21300004: crouchSprite_2
+    21300006: crouchSprite_3
+    21300008: crouchSprite_4
+    21300010: crouchSprite_5
+    21300012: crouchSprite_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: crouchSprite_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 0
+        width: 70
+        height: 134
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouchSprite_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 69
+        height: 125
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouchSprite_2
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 0
+        width: 86
+        height: 104
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouchSprite_3
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1
+        width: 86
+        height: 92
+      alignment: 9
+      pivot: {x: .518843889, y: .728992462}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouchSprite_4
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 0
+        width: 86
+        height: 104
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouchSprite_5
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 0
+        width: 69
+        height: 125
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: crouchSprite_6
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 0
+        width: 70
+        height: 134
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

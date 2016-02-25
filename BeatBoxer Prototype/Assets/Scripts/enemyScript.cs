@@ -11,11 +11,10 @@ public class enemyScript : MonoBehaviour {
     public BeatBoxerScript knockbackFlag;
     public GameObject knockOut;
     float speed;
-    float range;
-     private GameObject Player;
-    private GameObject Enemies;
-    private float Range;
-    public Collider2D stopMoving;
+    private GameObject Player;
+    private float Range = 15f;
+    public Transform enemyMoving;
+
     // Use this for initialization
     void Start () {
         enemeyRigidBody = GetComponent<Rigidbody2D>();
@@ -24,9 +23,9 @@ public class enemyScript : MonoBehaviour {
         Debug.Log(currHealth);
         knockOut = GameObject.Find("Player");
         knockbackFlag = knockOut.GetComponent<BeatBoxerScript>();
-        speed = .5f;
+        speed = 3f;
         Player = GameObject.FindGameObjectWithTag("Player");
-        Enemies = GameObject.FindGameObjectWithTag("enemy");
+        enemyMoving = Player.transform;
         
     }
     
@@ -50,13 +49,18 @@ public class enemyScript : MonoBehaviour {
 
             Destroy(gameObject);
         }
-        if (stopMoving.CompareTag("Player")){
-            Vector2 velocity = new Vector2((transform.position.x - Player.transform.position.x) * speed, (transform.position.y - Player.transform.position.y) * speed);
-            enemeyRigidBody.velocity = -velocity;
+        if (Vector3.Distance(enemyMoving.position, transform.position) < Range)
+        {
+            move();
         }
-    }
-    
 
+    }
+  
+    public void move()
+    {
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, enemyMoving.position, step);
+    }
     public void underAttack(int damage)
     {
        
@@ -76,12 +80,12 @@ public class enemyScript : MonoBehaviour {
             {
 
                 Debug.Log(knockbackFlag.flipping);
-                enemeyRigidBody.AddForce(Vector3.right * 100);
+                enemeyRigidBody.AddForce(Vector3.right * 1000);
             } else
             {
 
                 Debug.Log(knockbackFlag.flipping);
-                enemeyRigidBody.AddForce(Vector3.left * 100);
+                enemeyRigidBody.AddForce(Vector3.left * 1000);
 
             }
         }

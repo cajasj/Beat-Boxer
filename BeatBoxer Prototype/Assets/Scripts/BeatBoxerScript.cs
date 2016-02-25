@@ -15,12 +15,13 @@ public class BeatBoxerScript : MonoBehaviour {
     public float y;
     Animator animUpDown;
     Animator animCrouch;
-    public bool flipping = true;
+    public bool flipping;
     // Use this for initialization
     void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();
         animUpDown = GetComponent<Animator>();
         animCrouch = GetComponent<Animator>();
+        flipping = false;
     }
 	
 	// Update is called once per frame
@@ -84,15 +85,15 @@ public class BeatBoxerScript : MonoBehaviour {
        //////////////////
         if (x >0 && !facingRight)
         {
-            Flip();
             flipping = false;
-            Debug.Log(flipping);
+            Flip();
+            
         }
         else if(x <0 && facingRight)
         {
-            Flip();
             flipping = true;
-            Debug.Log(flipping);
+            Flip();
+            
         }
 	}
 

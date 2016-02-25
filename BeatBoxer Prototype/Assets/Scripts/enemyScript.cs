@@ -10,6 +10,12 @@ public class enemyScript : MonoBehaviour {
     private Rigidbody2D enemeyRigidBody;
     public BeatBoxerScript knockbackFlag;
     public GameObject knockOut;
+    float speed;
+    float range;
+     private GameObject Player;
+    private GameObject Enemies;
+    private float Range;
+    public Collider2D stopMoving;
     // Use this for initialization
     void Start () {
         enemeyRigidBody = GetComponent<Rigidbody2D>();
@@ -18,6 +24,10 @@ public class enemyScript : MonoBehaviour {
         Debug.Log(currHealth);
         knockOut = GameObject.Find("Player");
         knockbackFlag = knockOut.GetComponent<BeatBoxerScript>();
+        speed = .5f;
+        Player = GameObject.FindGameObjectWithTag("Player");
+        Enemies = GameObject.FindGameObjectWithTag("enemy");
+        
     }
     
     // Update is called once per frame
@@ -40,7 +50,10 @@ public class enemyScript : MonoBehaviour {
 
             Destroy(gameObject);
         }
-      
+        if (stopMoving.CompareTag("Player")){
+            Vector2 velocity = new Vector2((transform.position.x - Player.transform.position.x) * speed, (transform.position.y - Player.transform.position.y) * speed);
+            enemeyRigidBody.velocity = -velocity;
+        }
     }
     
 

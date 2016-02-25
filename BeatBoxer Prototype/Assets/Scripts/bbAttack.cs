@@ -10,7 +10,6 @@ public class bbAttack : MonoBehaviour
     private bool noTrigger;
     public Collider2D jabTrigger;
     private Animator anim;
-    private BeatBoxerScript test;
     GameObject work;
     void Awake()
     {
@@ -20,7 +19,6 @@ public class bbAttack : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        test = GetComponent<BeatBoxerScript>();
         
         
     }

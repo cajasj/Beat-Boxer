@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\courchScript.cs" />
      <Compile Include="Assets\Scripts\disableTempCollider.cs" />
      <Compile Include="Assets\Scripts\enemyScript.cs" />
+     <Compile Include="Assets\Scripts\enemySpawn.cs" />
      <Compile Include="Assets\Scripts\jabTrigger.cs" />
      <Compile Include="Assets\Scripts\nextStage.cs" />
      <Compile Include="Assets\scr.cs" />

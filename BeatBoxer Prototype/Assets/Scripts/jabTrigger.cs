@@ -3,7 +3,6 @@ using System.Collections;
 
 public class jabTrigger : MonoBehaviour {
     private static int jabDamage = 10;
-    public GameObject animationObject;
     GameObject col;
     void Update()
     {

@@ -48,11 +48,16 @@
      <Compile Include="Assets\Scripts\BeatBoxerScript.cs" />
      <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\bbAttack.cs" />
+     <Compile Include="Assets\Scripts\benzaAttack.cs" />
+     <Compile Include="Assets\Scripts\benzaTrigger.cs" />
      <Compile Include="Assets\Scripts\courchScript.cs" />
      <Compile Include="Assets\Scripts\disableTempCollider.cs" />
      <Compile Include="Assets\Scripts\enemyScript.cs" />
      <Compile Include="Assets\Scripts\enemySpawn.cs" />
+     <Compile Include="Assets\Scripts\hookAttack.cs" />
+     <Compile Include="Assets\Scripts\hookTrigger.cs" />
      <Compile Include="Assets\Scripts\jabTrigger.cs" />
+     <Compile Include="Assets\Scripts\lightKick.cs" />
      <Compile Include="Assets\Scripts\nextStage.cs" />
      <Compile Include="Assets\scr.cs" />
      <None Include="Assets\Fonts\OFL.txt" />

@@ -72,9 +72,7 @@ public class enemyScript : MonoBehaviour {
     {
         if (col.CompareTag("jabbing"))
         {
-            knock = true;
-            knockbackTimer = knockbackDuration;
-            enemeyRigidBody.isKinematic = false;
+            knockBackSetting();
             Debug.Log(knockbackFlag.flipping);
             if (knockbackFlag.flipping == false)
             {
@@ -89,8 +87,31 @@ public class enemyScript : MonoBehaviour {
 
             }
         }
-        
-       
+        if (col.CompareTag("hook"))
+        {
+            knockBackSetting();
+            Debug.Log(knockbackFlag.flipping);
+            if (knockbackFlag.flipping == false)
+            {
+
+                Debug.Log(knockbackFlag.flipping);
+                enemeyRigidBody.AddForce(Vector3.up * 1000);
+            }
+            else
+            {
+
+                Debug.Log(knockbackFlag.flipping);
+                enemeyRigidBody.AddForce(Vector3.down * 1000);
+
+            }
+        }
+
     }
    
+    public void knockBackSetting()
+    {
+        knock = true;
+        knockbackTimer = knockbackDuration;
+        enemeyRigidBody.isKinematic = false;
+    }
 }

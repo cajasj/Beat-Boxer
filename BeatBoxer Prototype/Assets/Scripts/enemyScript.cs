@@ -8,19 +8,21 @@ public class enemyScript : MonoBehaviour {
     public int currHealth;
     public int maxHealth=30;
     private Rigidbody2D enemeyRigidBody;
-
+    public BeatBoxerScript knockbackFlag;
+    public GameObject knockOut;
     // Use this for initialization
     void Start () {
         enemeyRigidBody = GetComponent<Rigidbody2D>();
         enemeyRigidBody.isKinematic = true;
         currHealth = maxHealth;
         Debug.Log(currHealth);
+        knockOut = GameObject.Find("Player");
+        knockbackFlag = knockOut.GetComponent<BeatBoxerScript>();
     }
     
     // Update is called once per frame
     void Update ()
     {
- 
         if (knock)
         {
             if (knockbackTimer > 0)
@@ -56,7 +58,19 @@ public class enemyScript : MonoBehaviour {
             knock = true;
             knockbackTimer = knockbackDuration;
             enemeyRigidBody.isKinematic = false;
-            enemeyRigidBody.AddForce(Vector3.right * 100);
+            Debug.Log(knockbackFlag.flipping);
+            if (knockbackFlag.flipping == false)
+            {
+
+                Debug.Log(knockbackFlag.flipping);
+                enemeyRigidBody.AddForce(Vector3.right * 100);
+            } else
+            {
+
+                Debug.Log(knockbackFlag.flipping);
+                enemeyRigidBody.AddForce(Vector3.left * 100);
+
+            }
         }
         
        

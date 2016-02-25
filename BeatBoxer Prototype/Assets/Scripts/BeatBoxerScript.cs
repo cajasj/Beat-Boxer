@@ -15,7 +15,7 @@ public class BeatBoxerScript : MonoBehaviour {
     public float y;
     Animator animUpDown;
     Animator animCrouch;
-    
+    public bool flipping = true;
     // Use this for initialization
     void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -85,9 +85,14 @@ public class BeatBoxerScript : MonoBehaviour {
         if (x >0 && !facingRight)
         {
             Flip();
-        }else if(x <0 && facingRight)
+            flipping = false;
+            Debug.Log(flipping);
+        }
+        else if(x <0 && facingRight)
         {
             Flip();
+            flipping = true;
+            Debug.Log(flipping);
         }
 	}
 
@@ -98,6 +103,7 @@ public class BeatBoxerScript : MonoBehaviour {
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+        
     }
    
 

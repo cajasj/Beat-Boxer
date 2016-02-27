@@ -3,8 +3,8 @@ using System.Collections;
 using System;
 
 public class BeatBoxerScript : MonoBehaviour {
-
-    public float maxSpeed = 5f;
+    int health=40;
+    public float maxSpeed = 10f;
     bool facingRight = true;
     bool stop = true;
     public Vector3 playerPos;
@@ -71,14 +71,15 @@ public class BeatBoxerScript : MonoBehaviour {
         /////////////////
         ////Running/////
         ///////////////
-        if (Input.GetKey( KeyCode.LeftShift))
+        if (Input.GetKey( KeyCode.LeftShift)&&(Input.GetButton("Horizontal")|| Input.GetButton("Vertical")))
         {
             animCrouch.SetBool("running", true);
+            maxSpeed = 15f;
         }
         else
         {
             animCrouch.SetBool("running", false);
-
+            maxSpeed = 10f;
         }
        ////////////////////
        /////Flip Sprite///

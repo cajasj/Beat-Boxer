@@ -6,7 +6,7 @@ public class enemyScript : MonoBehaviour {
     private float knockbackDuration = .3f;
     private float knockbackTimer = 0;
     public int currHealth;
-    public int maxHealth=30;
+    public int maxHealth=3000;
     private Rigidbody2D enemeyRigidBody;
     public BeatBoxerScript knockbackFlag;
     public GameObject knockOut;
@@ -87,7 +87,7 @@ public class enemyScript : MonoBehaviour {
 
             }
         }
-        if (col.CompareTag("hook"))
+        if (col.CompareTag("benza"))
         {
             knockBackSetting();
             Debug.Log(knockbackFlag.flipping);
@@ -95,15 +95,25 @@ public class enemyScript : MonoBehaviour {
             {
 
                 Debug.Log(knockbackFlag.flipping);
-                enemeyRigidBody.AddForce(Vector3.up * 1000);
+                enemeyRigidBody.AddForce(Vector3.right * 2000);
             }
             else
             {
 
                 Debug.Log(knockbackFlag.flipping);
-                enemeyRigidBody.AddForce(Vector3.down * 1000);
+                enemeyRigidBody.AddForce(Vector3.left * 2000);
 
             }
+        }
+        if (col.CompareTag("hook"))
+        {
+            knockBackSetting();
+            Debug.Log(knockbackFlag.flipping);
+         
+
+                Debug.Log(knockbackFlag.flipping);
+                enemeyRigidBody.AddForce(Vector3.down * 1000);
+           
         }
 
     }

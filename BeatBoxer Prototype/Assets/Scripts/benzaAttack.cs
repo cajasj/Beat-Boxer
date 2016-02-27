@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/// <summary>
+/// 
+/// Add revelant scripts to each stage
+/// 
+/// 
+/// </summary>
 public class benzaAttack : MonoBehaviour {
 
     private bool jabAttack = false;

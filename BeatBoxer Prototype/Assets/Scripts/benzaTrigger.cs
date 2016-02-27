@@ -2,9 +2,14 @@
 using System.Collections;
 
 public class benzaTrigger : MonoBehaviour {
-
+    public BeatBoxerScript beatboxerStrength;
     private static int benzaDamage = 30;
     GameObject col;
+    void Start()
+    {
+        
+
+    }
     void Update()
     {
 
@@ -15,8 +20,8 @@ public class benzaTrigger : MonoBehaviour {
 
         if (col.isTrigger == false && col.CompareTag("enemy"))
         {
-            col.isTrigger = true;
-            col.SendMessageUpwards("underAttack", benzaDamage);
+          col.isTrigger = true;
+          col.SendMessageUpwards("underAttack", benzaDamage+beatboxerStrength.strength);
         }
         col.isTrigger = false;
     }

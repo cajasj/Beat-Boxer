@@ -3,8 +3,10 @@ using System.Collections;
 using System;
 
 public class BeatBoxerScript : MonoBehaviour {
-    int health=40;
+    public int health=40;
+    public int strength = 1;
     public float maxSpeed = 10f;
+    public float agility = 15f;
     bool facingRight = true;
     bool stop = true;
     public Vector3 playerPos;
@@ -74,7 +76,7 @@ public class BeatBoxerScript : MonoBehaviour {
         if (Input.GetKey( KeyCode.LeftShift)&&(Input.GetButton("Horizontal")|| Input.GetButton("Vertical")))
         {
             animCrouch.SetBool("running", true);
-            maxSpeed = 15f;
+            maxSpeed = agility;
         }
         else
         {

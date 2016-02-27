@@ -4,6 +4,8 @@ using System.Collections;
 public class hookTrigger : MonoBehaviour
 {
     private static int hookDamage = 25;
+    public BeatBoxerScript beatboxerStrength;
+
     GameObject col;
     void Update()
     {
@@ -16,7 +18,7 @@ public class hookTrigger : MonoBehaviour
         if (col.isTrigger == false && col.CompareTag("enemy"))
         {
             col.isTrigger = true;
-            col.SendMessageUpwards("underAttack", hookDamage);
+            col.SendMessageUpwards("underAttack", hookDamage+beatboxerStrength.strength);
         }
         col.isTrigger = false;
     }

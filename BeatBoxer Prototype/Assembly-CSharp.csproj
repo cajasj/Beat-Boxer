@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BeatBoxerScript.cs" />
-     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\bbAttack.cs" />
      <Compile Include="Assets\Scripts\benzaAttack.cs" />
      <Compile Include="Assets\Scripts\benzaTrigger.cs" />

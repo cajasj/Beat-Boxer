@@ -11,7 +11,6 @@ public class benzaAttack : MonoBehaviour {
     private bool jabAttack = false;
     private float attackCoolDown = .3f;
     private float attackTimer = 0;
-    private bool disableInput = false;
     private bool noTrigger;
     public Collider2D benzaTrigger;
     private Animator anim;

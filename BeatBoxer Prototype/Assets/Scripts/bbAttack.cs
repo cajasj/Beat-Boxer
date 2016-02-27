@@ -6,10 +6,10 @@ public class bbAttack : MonoBehaviour
     private bool jabAttack = false;
     private float attackCoolDown=.3f;
     private float attackTimer=0;
-    private bool disableInput = false;
     private bool noTrigger;
     public Collider2D jabTrigger;
     private Animator anim;
+
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();

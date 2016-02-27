@@ -6,7 +6,6 @@ public class hookAttack : MonoBehaviour
     private bool jabAttack = false;
     private float attackCoolDown = .2f;
     private float attackTimer = 0;
-    private bool disableInput = false;
     private bool noTrigger;
     public Collider2D hookTrigger;
     private Animator anim;

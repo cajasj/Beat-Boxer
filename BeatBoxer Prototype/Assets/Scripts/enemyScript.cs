@@ -6,7 +6,7 @@ public class enemyScript : MonoBehaviour {
     private float knockbackDuration = .3f;
     private float knockbackTimer = 0;
     public int currHealth;
-    public int maxHealth=3000;
+    public int maxHealth=30;
     private Rigidbody2D enemeyRigidBody;
     public BeatBoxerScript knockbackFlag;
     public GameObject knockOut;
@@ -14,13 +14,12 @@ public class enemyScript : MonoBehaviour {
     private GameObject Player;
     private float Range = 15f;
     public Transform enemyMoving;
-
+    BeatBoxerScript forceBack;
     // Use this for initialization
     void Start () {
         enemeyRigidBody = GetComponent<Rigidbody2D>();
         enemeyRigidBody.isKinematic = true;
         currHealth = maxHealth;
-        Debug.Log(currHealth);
         knockOut = GameObject.Find("Player");
         knockbackFlag = knockOut.GetComponent<BeatBoxerScript>();
         speed = 3f;
@@ -65,7 +64,6 @@ public class enemyScript : MonoBehaviour {
     {
        
         currHealth -= damage;
-        Debug.Log(currHealth);
 
     }
     void OnTriggerEnter2D(Collider2D col)
@@ -76,13 +74,11 @@ public class enemyScript : MonoBehaviour {
             Debug.Log(knockbackFlag.flipping);
             if (knockbackFlag.flipping == false)
             {
-
-                Debug.Log(knockbackFlag.flipping);
+                
                 enemeyRigidBody.AddForce(Vector3.right * 1000);
             } else
             {
-
-                Debug.Log(knockbackFlag.flipping);
+                
                 enemeyRigidBody.AddForce(Vector3.left * 1000);
 
             }
@@ -94,13 +90,11 @@ public class enemyScript : MonoBehaviour {
             if (knockbackFlag.flipping == false)
             {
 
-                Debug.Log(knockbackFlag.flipping);
                 enemeyRigidBody.AddForce(Vector3.right * 2000);
             }
             else
             {
-
-                Debug.Log(knockbackFlag.flipping);
+                
                 enemeyRigidBody.AddForce(Vector3.left * 2000);
 
             }
@@ -108,11 +102,7 @@ public class enemyScript : MonoBehaviour {
         if (col.CompareTag("hook"))
         {
             knockBackSetting();
-            Debug.Log(knockbackFlag.flipping);
-         
-
-                Debug.Log(knockbackFlag.flipping);
-                enemeyRigidBody.AddForce(Vector3.down * 1000);
+            enemeyRigidBody.AddForce(Vector3.down * 1000);
            
         }
 

@@ -15,6 +15,8 @@ public class enemyScript : MonoBehaviour {
     private float Range = 15f;
     public Transform enemyMoving;
     BeatBoxerScript forceBack;
+    BeatBoxerScript flipme;
+    private BoxCollider2D offOn;
     // Use this for initialization
     void Start () {
         enemeyRigidBody = GetComponent<Rigidbody2D>();
@@ -25,7 +27,7 @@ public class enemyScript : MonoBehaviour {
         speed = 3f;
         Player = GameObject.FindGameObjectWithTag("Player");
         enemyMoving = Player.transform;
-        
+        offOn = GetComponent<BoxCollider2D>();
     }
     
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class enemyScript : MonoBehaviour {
             {
                 knock = false;
                 enemeyRigidBody.isKinematic = true;
+                offOn.enabled = true;
             }
         }
         if (currHealth <= 0)
@@ -66,50 +69,33 @@ public class enemyScript : MonoBehaviour {
         currHealth -= damage;
 
     }
-    void OnTriggerEnter2D(Collider2D col)
+    public void knockMeBack(float ludacrisGetBack)
     {
-        if (col.CompareTag("jabbing"))
+        knockBackSetting();
+        
+        if (knockbackFlag.flipping == false)
         {
-            knockBackSetting();
-            Debug.Log(knockbackFlag.flipping);
-            if (knockbackFlag.flipping == false)
-            {
-                
-                enemeyRigidBody.AddForce(Vector3.right * 1000);
-            } else
-            {
-                
-                enemeyRigidBody.AddForce(Vector3.left * 1000);
 
-            }
+            enemeyRigidBody.AddForce(Vector3.right * ludacrisGetBack);
         }
-        if (col.CompareTag("benza"))
+        else
         {
-            knockBackSetting();
-            Debug.Log(knockbackFlag.flipping);
-            if (knockbackFlag.flipping == false)
-            {
 
-                enemeyRigidBody.AddForce(Vector3.right * 2000);
-            }
-            else
-            {
-                
-                enemeyRigidBody.AddForce(Vector3.left * 2000);
+            enemeyRigidBody.AddForce(Vector3.left * ludacrisGetBack);
 
-            }
         }
-        if (col.CompareTag("hook"))
-        {
-            knockBackSetting();
-            enemeyRigidBody.AddForce(Vector3.down * 1000);
-           
-        }
-
+        
     }
-   
+    public void knockMeDown(float ludacrisGetBack)
+    {
+        knockBackSetting();
+        enemeyRigidBody.AddForce(Vector3.down * ludacrisGetBack);
+      
+       
+    }
     public void knockBackSetting()
     {
+        offOn.enabled = false;
         knock = true;
         knockbackTimer = knockbackDuration;
         enemeyRigidBody.isKinematic = false;

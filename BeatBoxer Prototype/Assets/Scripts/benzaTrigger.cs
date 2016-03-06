@@ -3,7 +3,9 @@ using System.Collections;
 
 public class benzaTrigger : MonoBehaviour {
     public BeatBoxerScript beatboxerStrength;
-    private static int benzaDamage = 30;
+    private static int benzaDamage = 10;
+    private static float ludacris = 2000;
+
     GameObject col;
     void Start()
     {
@@ -22,6 +24,7 @@ public class benzaTrigger : MonoBehaviour {
         {
           col.isTrigger = true;
           col.SendMessageUpwards("underAttack", benzaDamage+beatboxerStrength.strength);
+          col.SendMessageUpwards("knockMeBack", ludacris);
         }
         col.isTrigger = false;
     }

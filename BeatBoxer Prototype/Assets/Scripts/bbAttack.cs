@@ -9,7 +9,7 @@ public class bbAttack : MonoBehaviour
     private bool noTrigger;
     public Collider2D jabTrigger;
     private Animator anim;
-
+    
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -63,6 +63,7 @@ public class bbAttack : MonoBehaviour
 
             jabAttack = false;
             jabTrigger.enabled = false;
+            
         }
     }
     public void noInteruption(bool stop)

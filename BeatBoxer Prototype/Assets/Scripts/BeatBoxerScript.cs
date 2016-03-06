@@ -33,7 +33,6 @@ public class BeatBoxerScript : MonoBehaviour {
         //////////////////  
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
-        
         myRigidBody.velocity = new Vector3(x * maxSpeed, y * maxSpeed, myRigidBody.velocity.y);
       
             if (Input.GetButton("Horizontal"))

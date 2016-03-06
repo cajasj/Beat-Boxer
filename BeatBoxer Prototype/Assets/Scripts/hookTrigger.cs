@@ -3,8 +3,9 @@ using System.Collections;
 
 public class hookTrigger : MonoBehaviour
 {
-    private static int hookDamage = 25;
+    private static int hookDamage = 10;
     public BeatBoxerScript beatboxerStrength;
+    private static float ludacris = 1100;
 
     GameObject col;
     void Update()
@@ -19,6 +20,7 @@ public class hookTrigger : MonoBehaviour
         {
             col.isTrigger = true;
             col.SendMessageUpwards("underAttack", hookDamage+beatboxerStrength.strength);
+            col.SendMessageUpwards("knockMeDown", ludacris);
         }
         col.isTrigger = false;
     }

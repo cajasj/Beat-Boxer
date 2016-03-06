@@ -35,34 +35,34 @@ public class BeatBoxerScript : MonoBehaviour {
         y = Input.GetAxis("Vertical");
         
         myRigidBody.velocity = new Vector3(x * maxSpeed, y * maxSpeed, myRigidBody.velocity.y);
+      
+            if (Input.GetButton("Horizontal"))
+            {
+                animUpDown.SetFloat("walking", Mathf.Abs(x));
+            }
+            else
+            {
+                animUpDown.SetFloat("walking", Mathf.Abs(0));
+
+            }
+
+            if (Input.GetButton("Vertical"))
+            {
+
+                animUpDown.SetFloat("walking", Mathf.Abs(y));
+            }
+
        
-        if (Input.GetButton("Horizontal"))
-        {
-            animUpDown.SetFloat("walking", Mathf.Abs(x));
-        }
-        else
-        {
-            animUpDown.SetFloat("walking", Mathf.Abs(0));
-            
-        }
-        
-        if(Input.GetButton("Vertical"))
-        {
-
-            animUpDown.SetFloat("walking", Mathf.Abs(y));
-        }
-        
-
 
         ////////////////////////
-        //////Crouche//////////
+        //////Crouch//////////
         //////////////////////
         if (Input.GetButton("Crouch"))
         {
             animCrouch.SetBool("crouch", true);
             stop = true;
             SendMessageUpwards("noInteruption", stop);
-
+            myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
         }
         else
         {

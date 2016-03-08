@@ -30,7 +30,6 @@ void Start()
             // Randomly pick a point within the spawn object
             var spawnPoint = new Vector2(Random.Range(x1, x2), transform.position.y);
             spawnCount++;
-            Debug.Log(spawnCount);
             // Create an enemy at the 'spawnPoint' position
             Instantiate(enemy, spawnPoint, Quaternion.identity);
         }

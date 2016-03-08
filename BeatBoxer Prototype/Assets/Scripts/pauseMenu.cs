@@ -6,6 +6,7 @@ public class pauseMenu : MonoBehaviour {
     public GameObject pauseCanvas;
     public GameObject panel;
     public bool isClicked;
+    public bool statClicked;
 	// Use this for initialization
 
 	
@@ -23,6 +24,14 @@ public class pauseMenu : MonoBehaviour {
             isClicked = false;
         }
         if (isClicked)
+        {
+            panel.SetActive(true);
+        }
+        else
+        {
+            panel.SetActive(false);
+        }
+        if (statClicked)
         {
             panel.SetActive(true);
         }
@@ -52,5 +61,9 @@ public class pauseMenu : MonoBehaviour {
     public void exitGame()
     {
         Application.Quit();
+    }
+    public void statsMenu()
+    {
+        statClicked = true;
     }
 }

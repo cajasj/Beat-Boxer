@@ -3,10 +3,10 @@ using System.Collections;
 
 public class jabTrigger : MonoBehaviour {
     private static int jabDamage = 10;
-    GameObject col;
     private static float ludacris = 1100;
     public BeatBoxerScript beatboxerStrength;
-
+    public GameObject damNumber;
+    GameObject col;
     void Update()
     {
         
@@ -20,6 +20,7 @@ public class jabTrigger : MonoBehaviour {
             col.isTrigger = true;
                 col.SendMessageUpwards("underAttack", (jabDamage+beatboxerStrength.strength)/2);
             col.SendMessageUpwards("knockMeBack", ludacris);
+            var clone =Instantiate(damNumber,)
 
         }
         col.isTrigger = false;

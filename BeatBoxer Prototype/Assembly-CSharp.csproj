@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\disableTempCollider.cs" />
      <Compile Include="Assets\Scripts\enemyScript.cs" />
      <Compile Include="Assets\Scripts\enemySpawn.cs" />
+     <Compile Include="Assets\Scripts\floatingDamage.cs" />
      <Compile Include="Assets\Scripts\hookAttack.cs" />
      <Compile Include="Assets\Scripts\hookTrigger.cs" />
      <Compile Include="Assets\Scripts\jabTrigger.cs" />
@@ -61,6 +62,7 @@
      <Compile Include="Assets\Scripts\nextStage.cs" />
      <Compile Include="Assets\Scripts\pauseMenu.cs" />
      <Compile Include="Assets\Scripts\quitSubMenu.cs" />
+     <Compile Include="Assets\Scripts\removeFloatDam.cs" />
      <Compile Include="Assets\Scripts\uppercutAttack.cs" />
      <Compile Include="Assets\Scripts\uppercutTrigger.cs" />
      <Compile Include="Assets\scr.cs" />

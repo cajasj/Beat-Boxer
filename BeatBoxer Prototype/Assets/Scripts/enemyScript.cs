@@ -6,27 +6,24 @@ public class enemyScript : MonoBehaviour {
     private float knockbackDuration = .3f;
     private float knockbackTimer = 0;
     public int currHealth;
-    public int maxHealth=30;
+    public int maxHealth;
     private Rigidbody2D enemeyRigidBody;
-    public BeatBoxerScript knockbackFlag;
-    public GameObject knockOut;
+    public BeatBoxerScript enemyObject;
+    public GameObject beatBoxer;
     float speed;
-    private GameObject Player;
+    public int enemyEXP;
     private float Range = 15f;
     public Transform enemyMoving;
-    BeatBoxerScript forceBack;
-    BeatBoxerScript flipme;
     private BoxCollider2D offOn;
     // Use this for initialization
     void Start () {
         enemeyRigidBody = GetComponent<Rigidbody2D>();
         enemeyRigidBody.isKinematic = true;
         currHealth = maxHealth;
-        knockOut = GameObject.Find("Player");
-        knockbackFlag = knockOut.GetComponent<BeatBoxerScript>();
+        beatBoxer = GameObject.Find("Player");
+        enemyObject = beatBoxer.GetComponent<BeatBoxerScript>();
         speed = 3f;
-        Player = GameObject.FindGameObjectWithTag("Player");
-        enemyMoving = Player.transform;
+        enemyMoving = beatBoxer.transform;
         offOn = GetComponent<BoxCollider2D>();
     }
     
@@ -50,6 +47,7 @@ public class enemyScript : MonoBehaviour {
         {
 
             Destroy(gameObject);
+            enemyObject.awardEXP(enemyEXP);
         }
         if (Vector3.Distance(enemyMoving.position, transform.position) < Range)
         {
@@ -73,7 +71,7 @@ public class enemyScript : MonoBehaviour {
     {
         knockBackSetting();
         
-        if (knockbackFlag.flipping == false)
+        if (enemyObject.flipping == false)
         {
 
             enemeyRigidBody.AddForce(Vector3.right * ludacrisGetBack);

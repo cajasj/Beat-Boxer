@@ -12,7 +12,7 @@ public class BeatBoxerScript : MonoBehaviour {
     public Vector3 playerPos;
     private Rigidbody2D myRigidBody;
     private Rigidbody2D myRigidBody2;
-    int exp = 0;
+    int currentExp = 0;
     public float x;
     public float y;
     Animator animUpDown;
@@ -108,6 +108,10 @@ public class BeatBoxerScript : MonoBehaviour {
         transform.localScale = theScale;
         
     }
-   
+   public void awardEXP(int enemyEXP)
+    {
+        currentExp += enemyEXP;
+        Debug.Log(currentExp);
+    }
 
 }

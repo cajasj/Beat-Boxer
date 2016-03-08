@@ -59,6 +59,8 @@
      <Compile Include="Assets\Scripts\jabTrigger.cs" />
      <Compile Include="Assets\Scripts\lightKick.cs" />
      <Compile Include="Assets\Scripts\nextStage.cs" />
+     <Compile Include="Assets\Scripts\pauseMenu.cs" />
+     <Compile Include="Assets\Scripts\quitSubMenu.cs" />
      <Compile Include="Assets\Scripts\uppercutAttack.cs" />
      <Compile Include="Assets\Scripts\uppercutTrigger.cs" />
      <Compile Include="Assets\scr.cs" />

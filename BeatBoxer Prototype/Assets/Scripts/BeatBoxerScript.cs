@@ -3,27 +3,32 @@ using System.Collections;
 using System;
 
 public class BeatBoxerScript : MonoBehaviour {
-    public int health=40;
+    public int currentHealth=40;
+    public int currentExp = 0;
+    public int currentMoney = 0;
     public int strength = 1;
-    public float maxSpeed = 10f;
+    public int endurance = 1;
+    public int vitality = 10;
     public float agility = 15f;
+    public float guts = 100f;
+    
+    public float maxSpeed = 10f;
     bool facingRight = true;
     bool stop = true;
+
     public Vector3 playerPos;
     private Rigidbody2D myRigidBody;
     private Rigidbody2D myRigidBody2;
-    int currentExp = 0;
+
     public float x;
     public float y;
-    Animator animUpDown;
-    Animator animCrouch;
+    Animator beatBoxerMovement;
     public bool flipping;
     public shop[] shoppingList;
     // Use this for initialization
     void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();
-        animUpDown = GetComponent<Animator>();
-        animCrouch = GetComponent<Animator>();
+        beatBoxerMovement = GetComponent<Animator>();
         flipping = false;
     }
 	
@@ -38,18 +43,18 @@ public class BeatBoxerScript : MonoBehaviour {
       
             if (Input.GetButton("Horizontal"))
             {
-                animUpDown.SetFloat("walking", Mathf.Abs(x));
+                beatBoxerMovement.SetFloat("walking", Mathf.Abs(x));
             }
             else
             {
-                animUpDown.SetFloat("walking", Mathf.Abs(0));
+                beatBoxerMovement.SetFloat("walking", Mathf.Abs(0));
 
             }
 
             if (Input.GetButton("Vertical"))
             {
 
-                animUpDown.SetFloat("walking", Mathf.Abs(y));
+                beatBoxerMovement.SetFloat("walking", Mathf.Abs(y));
             }
 
        
@@ -59,7 +64,7 @@ public class BeatBoxerScript : MonoBehaviour {
         //////////////////////
         if (Input.GetButton("Crouch"))
         {
-            animCrouch.SetBool("crouch", true);
+            beatBoxerMovement.SetBool("crouch", true);
             stop = true;
             SendMessageUpwards("noInteruption", stop);
             myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
@@ -67,7 +72,7 @@ public class BeatBoxerScript : MonoBehaviour {
         else
         {
             stop = false;
-            animCrouch.SetBool("crouch", false);
+            beatBoxerMovement.SetBool("crouch", false);
             SendMessageUpwards("noInteruption", stop);
         }
         /////////////////
@@ -75,12 +80,12 @@ public class BeatBoxerScript : MonoBehaviour {
         ///////////////
         if (Input.GetKey( KeyCode.LeftShift)&&(Input.GetButton("Horizontal")|| Input.GetButton("Vertical")))
         {
-            animCrouch.SetBool("running", true);
+            beatBoxerMovement.SetBool("running", true);
             maxSpeed = agility;
         }
         else
         {
-            animCrouch.SetBool("running", false);
+            beatBoxerMovement.SetBool("running", false);
             maxSpeed = 10f;
         }
        ////////////////////

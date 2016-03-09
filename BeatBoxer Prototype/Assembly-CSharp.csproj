@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\shopitemDB.cs" />
      <Compile Include="Assets\Scripts\uppercutAttack.cs" />
      <Compile Include="Assets\Scripts\uppercutTrigger.cs" />
+     <Compile Include="Assets\Scripts\userInterface.cs" />
      <Compile Include="Assets\scr.cs" />
      <None Include="Assets\Fonts\OFL.txt" />
  <Reference Include="UnityEngine.UI">

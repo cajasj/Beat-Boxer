@@ -12,6 +12,7 @@ public class enemyScript : MonoBehaviour {
     public GameObject beatBoxer;
     float speed;
     public int enemyEXP;
+    public int enemyMoney;
     private float Range = 15f;
     public Transform enemyMoving;
     private BoxCollider2D offOn;
@@ -41,6 +42,7 @@ public class enemyScript : MonoBehaviour {
                 knock = false;
                 enemeyRigidBody.isKinematic = true;
                 offOn.enabled = true;
+          
             }
         }
         if (currHealth <= 0)
@@ -48,6 +50,8 @@ public class enemyScript : MonoBehaviour {
 
             Destroy(gameObject);
             enemyObject.awardEXP(enemyEXP);
+            enemyObject.awardMoney(enemyMoney);
+            
         }
         if (Vector3.Distance(enemyMoving.position, transform.position) < Range)
         {

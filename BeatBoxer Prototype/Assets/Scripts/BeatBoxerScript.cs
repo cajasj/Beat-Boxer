@@ -119,5 +119,9 @@ public class BeatBoxerScript : MonoBehaviour {
         currentExp += enemyEXP;
         Debug.Log(currentExp);
     }
-
+    public void awardMoney(int enemyMoney)
+    {
+        currentMoney += enemyMoney;
+        Debug.Log(currentMoney);
+    }
 }

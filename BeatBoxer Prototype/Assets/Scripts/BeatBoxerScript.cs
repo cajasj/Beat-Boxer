@@ -18,6 +18,7 @@ public class BeatBoxerScript : MonoBehaviour {
     Animator animUpDown;
     Animator animCrouch;
     public bool flipping;
+    public shop[] shoppingList;
     // Use this for initialization
     void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();

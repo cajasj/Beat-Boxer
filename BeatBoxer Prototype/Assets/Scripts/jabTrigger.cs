@@ -20,7 +20,7 @@ public class jabTrigger : MonoBehaviour {
             col.isTrigger = true;
                 col.SendMessageUpwards("underAttack", (jabDamage+beatboxerStrength.strength)/2);
             col.SendMessageUpwards("knockMeBack", ludacris);
-            var clone =Instantiate(damNumber,)
+           
 
         }
         col.isTrigger = false;

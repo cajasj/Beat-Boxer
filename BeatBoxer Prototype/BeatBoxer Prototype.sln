@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{57225B23-C278-B261-3B35-DF0CFA6A3256}") = "BeatBoxer Prototype", "Assembly-CSharp.csproj", "{C2517AFE-BFFA-3DB2-8095-1251F79388A2}"
 EndProject
+Project("{57225B23-C278-B261-3B35-DF0CFA6A3256}") = "BeatBoxer Prototype", "Assembly-CSharp-Editor.csproj", "{54F18D56-961E-A55B-B239-85ED8DA4A986}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +15,15 @@ Global
 		{C2517AFE-BFFA-3DB2-8095-1251F79388A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2517AFE-BFFA-3DB2-8095-1251F79388A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2517AFE-BFFA-3DB2-8095-1251F79388A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54F18D56-961E-A55B-B239-85ED8DA4A986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54F18D56-961E-A55B-B239-85ED8DA4A986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54F18D56-961E-A55B-B239-85ED8DA4A986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54F18D56-961E-A55B-B239-85ED8DA4A986}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																																																																																																																																	GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																																																																																																																																															GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

@@ -4,7 +4,7 @@ using System.Collections;
 public class benzaTrigger : MonoBehaviour {
     public BeatBoxerScript beatboxerStrength;
     private static int benzaDamage = 10;
-    private static float ludacris = 2000;
+    private static float ludacris = 20;
 
     GameObject col;
     void Start()

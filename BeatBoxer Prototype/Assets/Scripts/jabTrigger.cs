@@ -3,7 +3,7 @@ using System.Collections;
 
 public class jabTrigger : MonoBehaviour {
     private static int jabDamage = 10;
-    private static float ludacris = 1100;
+    private static float ludacris = 13;
     public BeatBoxerScript beatboxerStrength;
     public GameObject damNumber;
     GameObject col;

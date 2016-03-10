@@ -15,11 +15,14 @@ public class enemyScript : MonoBehaviour {
     public int enemyMoney;
     private float Range = 15f;
     public float luda;
+    public float cris;
     public Transform enemyMoving;
     public Transform target;
     private BoxCollider2D offOn;
     bool flipper=false;
     bool attack;
+    float xDiag = 50f;
+    float yDiag = 24f;
     // Use this for initialization
     void Start () {
         enemeyRigidBody = GetComponent<Rigidbody2D>();
@@ -50,13 +53,7 @@ public class enemyScript : MonoBehaviour {
           
             }
         }
-        if (currHealth <= 0)
-        {
-
-
-            transform.Rotate(0, 0, Time.deltaTime*2000);
-            Object.Destroy(gameObject, 1.2f);
-        }
+        checkHealth();
        
         if (transform.position.x < enemyMoving.position.x && flipper == false)
         {
@@ -105,47 +102,66 @@ public class enemyScript : MonoBehaviour {
     public void knockMeBack(float ludacrisGetBack)
     {
         luda = ludacrisGetBack;
+        cris = 0f;
         knockBackSetting();
         
         if (enemyObject.flipping == false)
         {
-            enemeyRigidBody.AddForce(Vector3.right * luda);
+            enemeyRigidBody.AddForce(new Vector3(luda, cris, 0), ForceMode2D.Impulse);
             
             
         }
         else
         {
-            enemeyRigidBody.AddForce(Vector3.left * luda);
+            enemeyRigidBody.AddForce(new Vector3(-luda, cris, 0), ForceMode2D.Impulse);
         }
         
     }
     public void knockMeDown(float ludacrisGetBack)
     {
-        luda = ludacrisGetBack;
+        luda = 0f;
+        cris = ludacrisGetBack;
         knockBackSetting();
-        enemeyRigidBody.AddForce(Vector3.down * luda);
-      
+        if (enemyObject.flipping == false)
+        {
+            enemeyRigidBody.AddForce(new Vector3(luda, -cris, 0), ForceMode2D.Impulse);
+        }
+        else
+        {
+            enemeyRigidBody.AddForce(new Vector3(-luda, -cris, 0), ForceMode2D.Impulse);
+        }
        
+    }
+    void checkHealth()
+    {
+        if (currHealth <= 0)
+        {
+            attack = false;
+            enemeyRigidBody.isKinematic = false;
+            offOn.enabled = false;
+            transform.Rotate(0, 0, Time.deltaTime * 3000);
+            luda = 30;
+            cris = 24;
+            Object.Destroy(gameObject, .5f);
+           
+                
+        }
+        
     }
     public void knockBackSetting()
     {
         offOn.enabled = false;
-        
-        enemeyRigidBody.isKinematic = false;
-        if (currHealth > 0) { 
         knockbackTimer = knockbackDuration;
-        }
-        else
+        enemeyRigidBody.isKinematic = false;
+        checkHealth();
+        knock = true;
+        if (currHealth <= 0)
         {
-            attack = false;
-            knockbackTimer =.3f;
-            luda = 6000;
-            
+            knockbackTimer = 1f;
+
             enemyObject.awardEXP(enemyEXP);
             enemyObject.awardMoney(enemyMoney);
-            
         }
-        knock = true;
     }
     void Flip()
     {

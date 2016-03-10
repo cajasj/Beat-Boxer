@@ -5,7 +5,7 @@ public class hookTrigger : MonoBehaviour
 {
     private static int hookDamage = 10;
     public BeatBoxerScript beatboxerStrength;
-    private static float ludacris = 1100;
+    private static float ludacris = 30;
 
     GameObject col;
     void Update()

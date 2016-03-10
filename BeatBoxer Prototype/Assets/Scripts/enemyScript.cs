@@ -76,7 +76,7 @@ public class enemyScript : MonoBehaviour {
         {
             move();
         }
-
+        ////////
         if (Vector3.Distance(enemyMoving.position, transform.position)<2.2)
         {
             attack = false;

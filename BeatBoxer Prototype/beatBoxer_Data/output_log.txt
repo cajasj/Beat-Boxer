@@ -15,21 +15,25 @@ Loading C:\Users\YanYan\Documents\Uni\seniorProject\BeatBoxer Prototype\beatBoxe
 Platform assembly: C:\Users\YanYan\Documents\Uni\seniorProject\BeatBoxer Prototype\beatBoxer_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\YanYan\Documents\Uni\seniorProject\BeatBoxer Prototype\beatBoxer_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\YanYan\Documents\Uni\seniorProject\BeatBoxer Prototype\beatBoxer_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.084 seconds
+- Completed reload, in  0.083 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1360x768 60Hz; virtual: 1360x768 at 0,0
 <RI> Initialized touch support.
 Platform assembly: C:\Users\YanYan\Documents\Uni\seniorProject\BeatBoxer Prototype\beatBoxer_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 16fc -> priority: 1 
+  Thread -> id: c40 -> priority: 1 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.824304 ms
+UnloadTime: 2.465966 ms
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 523.
-Total: 0.635903 ms (FindLiveObjects: 0.049087 ms CreateObjectMapping: 0.034807 ms MarkObjects: 0.538621 ms  DeleteObjects: 0.012048 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 528.
+Total: 0.452941 ms (FindLiveObjects: 0.033022 ms CreateObjectMapping: 0.022758 ms MarkObjects: 0.388682 ms  DeleteObjects: 0.008032 ms)
 
-in the open sub
+20
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+5
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 

@@ -5,7 +5,7 @@ public class jabTrigger : MonoBehaviour {
     private static int jabDamage = 10;
     private static float ludacris = 13;
     public BeatBoxerScript beatboxerStrength;
-    public GameObject damNumber;
+    //public GameObject damNumber;
     GameObject col;
     void Update()
     {

@@ -5,6 +5,7 @@ public class enemyScript : MonoBehaviour {
     private bool knock = false;
     private float knockbackDuration = .3f;
     private float knockbackTimer = 0;
+
     public int currHealth;
     public int maxHealth;
     private Rigidbody2D enemeyRigidBody;
@@ -20,9 +21,9 @@ public class enemyScript : MonoBehaviour {
     public Transform target;
     private BoxCollider2D offOn;
     bool flipper=false;
-    bool attack;
-    float xDiag = 50f;
-    float yDiag = 24f;
+    public bool attack;
+    
+    
     // Use this for initialization
     void Start () {
         enemeyRigidBody = GetComponent<Rigidbody2D>();
@@ -38,7 +39,9 @@ public class enemyScript : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-       
+       //////////////////////////
+       ///////KnockBack/////////
+       ////////////////////////
         if (knock)
         {
             if (knockbackTimer > 0)
@@ -53,8 +56,16 @@ public class enemyScript : MonoBehaviour {
           
             }
         }
+        //////////////////////////////////
+        ////Function to change force/////
+        ////when hp ==0/////////////////
+        ///////////////////////////////
         checkHealth();
        
+
+        /////////////////////////
+        /////////AI/////////////
+        ///////////////////////
         if (transform.position.x < enemyMoving.position.x && flipper == false)
         {
             
@@ -69,21 +80,25 @@ public class enemyScript : MonoBehaviour {
             flipper = false;
         }
 
-        if (Vector3.Distance(enemyMoving.position, transform.position) < Range&& attack ==true)
+        if (Vector3.Distance(enemyMoving.position, transform.position) < Range&& attack ==false)
         {
             move();
         }
-        ////////
         if (Vector3.Distance(enemyMoving.position, transform.position)<2.2)
         {
-            attack = false;
+            attack = true;
+            SendMessageUpwards("touching", attack);
         }
         else
         {
-            attack = true;
+            attack = false;
+            SendMessageUpwards("touching", attack);
         }
     }
-  
+    
+    /////////////////////////////
+    ////////AI////////////////// 
+    ///////////////////////////
     public void move()
     {
         float step = speed * Time.deltaTime;
@@ -91,14 +106,20 @@ public class enemyScript : MonoBehaviour {
       
         
     }
-   
+
+    /////////////////////////////
+    ////////Damage Recieve////// 
+    ///////////////////////////
     public void underAttack(int damage)
     {
        
         currHealth -= damage;
 
     }
-   
+
+    /////////////////////////////
+    ////////Knock Back X//////// 
+    ///////////////////////////
     public void knockMeBack(float ludacrisGetBack)
     {
         luda = ludacrisGetBack;
@@ -117,6 +138,10 @@ public class enemyScript : MonoBehaviour {
         }
         
     }
+
+    /////////////////////////////
+    ///Knock Back Y///////////// 
+    ///////////////////////////
     public void knockMeDown(float ludacrisGetBack)
     {
         luda = 0f;
@@ -132,6 +157,10 @@ public class enemyScript : MonoBehaviour {
         }
        
     }
+
+    /////////////////////////////
+    ///Knocks Back Diagonally///
+    ///////////////////////////
     void checkHealth()
     {
         if (currHealth <= 0)
@@ -139,15 +168,20 @@ public class enemyScript : MonoBehaviour {
             attack = false;
             enemeyRigidBody.isKinematic = false;
             offOn.enabled = false;
-            transform.Rotate(0, 0, Time.deltaTime * 3000);
+            transform.Rotate(0, 0, Time.deltaTime * 1100);
             luda = 30;
             cris = 24;
-            Object.Destroy(gameObject, .5f);
+            Object.Destroy(gameObject, 1.6f);
            
                 
         }
         
     }
+
+    /////////////////////////////
+    ///Change Object Property/// 
+    /// when knocked back//////
+    //////////////////////////
     public void knockBackSetting()
     {
         offOn.enabled = false;
@@ -155,14 +189,21 @@ public class enemyScript : MonoBehaviour {
         enemeyRigidBody.isKinematic = false;
         checkHealth();
         knock = true;
+        /////////////////////////
+        //////Award Once////////
+        ///////////////////////
         if (currHealth <= 0)
         {
-            knockbackTimer = 1f;
-
+            knockbackTimer = 1.5f; /// make sure enemy object is off screen;
             enemyObject.awardEXP(enemyEXP);
             enemyObject.awardMoney(enemyMoney);
         }
     }
+
+    /////////////////////////////
+    ////////Flip Sprite///////// 
+    ///////////////////////////
+
     void Flip()
     {
             Vector3 theScale = transform.localScale;

@@ -15,7 +15,9 @@ public class enemyScript : MonoBehaviour {
     public int enemyMoney;
     private float Range = 15f;
     public Transform enemyMoving;
+    public Transform target;
     private BoxCollider2D offOn;
+    bool flipper=false;
     // Use this for initialization
     void Start () {
         enemeyRigidBody = GetComponent<Rigidbody2D>();
@@ -53,17 +55,34 @@ public class enemyScript : MonoBehaviour {
             enemyObject.awardMoney(enemyMoney);
             
         }
+
+        if (transform.position.x < enemyMoving.position.x && flipper == false)
+        {
+            
+            Flip();
+            flipper = true;
+        }
+
+        if (transform.position.x > enemyMoving.position.x && flipper == true)
+        {
+
+            Flip();
+            flipper = false;
+        }
+
         if (Vector3.Distance(enemyMoving.position, transform.position) < Range)
         {
             move();
         }
-
+        enemyMoving.LookAt(target);
     }
   
     public void move()
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, enemyMoving.position, step);
+      
+        
     }
     public void underAttack(int damage)
     {
@@ -101,5 +120,12 @@ public class enemyScript : MonoBehaviour {
         knock = true;
         knockbackTimer = knockbackDuration;
         enemeyRigidBody.isKinematic = false;
+    }
+    void Flip()
+    {
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        
     }
 }

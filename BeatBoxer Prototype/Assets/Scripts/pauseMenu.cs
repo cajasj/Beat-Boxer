@@ -33,11 +33,10 @@ public class pauseMenu : MonoBehaviour {
         }
         if (statClicked)
         {
-            panel.SetActive(true);
+            
         }
         else
         {
-            panel.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -53,6 +52,7 @@ public class pauseMenu : MonoBehaviour {
     public void openQuitSub()
     {
         isClicked = true;
+        Debug.Log("in the open sub");
     }
    public void noQuit()
     {

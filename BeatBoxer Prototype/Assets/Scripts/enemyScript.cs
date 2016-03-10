@@ -14,10 +14,12 @@ public class enemyScript : MonoBehaviour {
     public int enemyEXP;
     public int enemyMoney;
     private float Range = 15f;
+    public float luda;
     public Transform enemyMoving;
     public Transform target;
     private BoxCollider2D offOn;
     bool flipper=false;
+    bool attack;
     // Use this for initialization
     void Start () {
         enemeyRigidBody = GetComponent<Rigidbody2D>();
@@ -33,6 +35,7 @@ public class enemyScript : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+       
         if (knock)
         {
             if (knockbackTimer > 0)
@@ -50,12 +53,11 @@ public class enemyScript : MonoBehaviour {
         if (currHealth <= 0)
         {
 
-            Destroy(gameObject);
-            enemyObject.awardEXP(enemyEXP);
-            enemyObject.awardMoney(enemyMoney);
-            
-        }
 
+            transform.Rotate(0, 0, Time.deltaTime*2000);
+            Object.Destroy(gameObject, 1.2f);
+        }
+       
         if (transform.position.x < enemyMoving.position.x && flipper == false)
         {
             
@@ -70,11 +72,19 @@ public class enemyScript : MonoBehaviour {
             flipper = false;
         }
 
-        if (Vector3.Distance(enemyMoving.position, transform.position) < Range)
+        if (Vector3.Distance(enemyMoving.position, transform.position) < Range&& attack ==true)
         {
             move();
         }
-        enemyMoving.LookAt(target);
+
+        if (Vector3.Distance(enemyMoving.position, transform.position)<2.2)
+        {
+            attack = false;
+        }
+        else
+        {
+            attack = true;
+        }
     }
   
     public void move()
@@ -84,42 +94,58 @@ public class enemyScript : MonoBehaviour {
       
         
     }
+   
     public void underAttack(int damage)
     {
        
         currHealth -= damage;
 
     }
+   
     public void knockMeBack(float ludacrisGetBack)
     {
+        luda = ludacrisGetBack;
         knockBackSetting();
         
         if (enemyObject.flipping == false)
         {
-
-            enemeyRigidBody.AddForce(Vector3.right * ludacrisGetBack);
+            enemeyRigidBody.AddForce(Vector3.right * luda);
+            
+            
         }
         else
         {
-
-            enemeyRigidBody.AddForce(Vector3.left * ludacrisGetBack);
-
+            enemeyRigidBody.AddForce(Vector3.left * luda);
         }
         
     }
     public void knockMeDown(float ludacrisGetBack)
     {
+        luda = ludacrisGetBack;
         knockBackSetting();
-        enemeyRigidBody.AddForce(Vector3.down * ludacrisGetBack);
+        enemeyRigidBody.AddForce(Vector3.down * luda);
       
        
     }
     public void knockBackSetting()
     {
         offOn.enabled = false;
-        knock = true;
-        knockbackTimer = knockbackDuration;
+        
         enemeyRigidBody.isKinematic = false;
+        if (currHealth > 0) { 
+        knockbackTimer = knockbackDuration;
+        }
+        else
+        {
+            attack = false;
+            knockbackTimer =.3f;
+            luda = 6000;
+            
+            enemyObject.awardEXP(enemyEXP);
+            enemyObject.awardMoney(enemyMoney);
+            
+        }
+        knock = true;
     }
     void Flip()
     {

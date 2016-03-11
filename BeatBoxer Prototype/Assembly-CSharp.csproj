@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\pullShopItem.cs" />
      <Compile Include="Assets\Scripts\quitSubMenu.cs" />
      <Compile Include="Assets\Scripts\removeFloatDam.cs" />
+     <Compile Include="Assets\Scripts\rollingScript.cs" />
      <Compile Include="Assets\Scripts\shop.cs" />
      <Compile Include="Assets\Scripts\shopitemDB.cs" />
      <Compile Include="Assets\Scripts\uppercutAttack.cs" />

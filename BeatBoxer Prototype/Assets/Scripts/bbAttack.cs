@@ -44,7 +44,7 @@ public class bbAttack : MonoBehaviour
     void onlyAttack()
     {
         if ((noTrigger == false) &&
-              (Input.GetButton("Horizontal") == false ^ Input.GetButton("Vertical")))
+              (!Input.GetButton("Horizontal") && !Input.GetButton("Vertical")))
         {
             jabAttack = true;
             attackTimer = attackCoolDown;

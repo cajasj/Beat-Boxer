@@ -4,7 +4,7 @@ using System.Collections;
 public class hookAttack : MonoBehaviour
 {
     private bool jabAttack = false;
-    private float attackCoolDown = .2f;
+    private float attackCoolDown = .3f;
     private float attackTimer = 0;
     private bool noTrigger;
     public Collider2D hookTrigger;
@@ -43,7 +43,7 @@ public class hookAttack : MonoBehaviour
     void onlyAttack()
     {
         if ((noTrigger == false) &&
-              (Input.GetButton("Horizontal") == false ^ Input.GetButton("Vertical")))
+               (!Input.GetButton("Horizontal") && !Input.GetButton("Vertical")))
         {
             jabAttack = true;
             attackTimer = attackCoolDown;

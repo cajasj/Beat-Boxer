@@ -11,10 +11,10 @@ public class BeatBoxerScript : MonoBehaviour {
     public int vitality = 10;
     public float agility = 15f;
     public float guts = 100f;
-    
+    private int force = 10;
     public float maxSpeed = 10f;
     bool facingRight = true;
-    bool stop = true;
+    public bool stop = true;
 
     public Vector3 playerPos;
     private Rigidbody2D myRigidBody;
@@ -31,9 +31,30 @@ public class BeatBoxerScript : MonoBehaviour {
         beatBoxerMovement = GetComponent<Animator>();
         flipping = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
+	void FixedUpdate()
+    {
+
+        ////////////////////////
+        //////Crouch//////////
+        //////////////////////
+        //if (Input.GetButton("Crouch"))
+        //{
+        //    beatBoxerMovement.SetBool("crouch", true);
+        //    stop = true;
+        //    SendMessageUpwards("noInteruption", stop);
+        //    myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
+
+        //}
+        //else
+        //{
+        //    stop = false;
+        //    beatBoxerMovement.SetBool("crouch", false);
+        //    SendMessageUpwards("noInteruption", stop);
+        //}
+
+    }
+    // Update is called once per frame
+    void Update () {
         ////////////////////
         ////X Y Movement///
         //////////////////  
@@ -57,17 +78,24 @@ public class BeatBoxerScript : MonoBehaviour {
                 beatBoxerMovement.SetFloat("walking", Mathf.Abs(y));
             }
 
-       
-
-        ////////////////////////
-        //////Crouch//////////
-        //////////////////////
-        if (Input.GetButton("Crouch"))
-        {
+        if (Input.GetButton("Crouch")) {
+            
             beatBoxerMovement.SetBool("crouch", true);
             stop = true;
             SendMessageUpwards("noInteruption", stop);
             myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
+            if (Input.GetButton("Horizontal"))
+
+            {
+
+                beatBoxerMovement.SetBool("rolling", true);
+                myRigidBody.AddForce(new Vector3(10, 0, 0), ForceMode2D.Impulse);
+            }
+            else
+            {
+                //myRigidBody.AddForce(new Vector3(1, 0, 0), ForceMode2D.Impulse);
+                beatBoxerMovement.SetBool("rolling", false);
+            }
         }
         else
         {
@@ -75,6 +103,8 @@ public class BeatBoxerScript : MonoBehaviour {
             beatBoxerMovement.SetBool("crouch", false);
             SendMessageUpwards("noInteruption", stop);
         }
+               
+
         /////////////////
         ////Running/////
         ///////////////

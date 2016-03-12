@@ -107,20 +107,6 @@ public class BeatBoxerScript : MonoBehaviour {
             if (Input.GetButton("Horizontal")==true&& rollInitiate ==false)
 
             {
-                //rollOn = true;
-                //regenGutsOn = false;
-                //rollInitiate = true;
-                //if (guts>20) { 
-                //beatBoxerMovement.SetBool("rolling", rollInitiate);
-                //myRigidBody.AddForce(new Vector3(10, 0, 0), ForceMode2D.Impulse);
-
-                //Debug.Log(Input.GetButton("Horizontal"));
-                //}
-                //else
-                //{
-                //    rollOn =false;
-                //}
-                
                 onlyRoll();
             }
             if (rollInitiate && guts>20)
@@ -128,11 +114,13 @@ public class BeatBoxerScript : MonoBehaviour {
                 rollOn = true;
                 if (rollOn)
                 {
-                    Debug.Log(guts);
-                    StartCoroutine("staminaDrain");
-                    animationCoolDown();
-                    myRigidBody.AddForce(new Vector3(10, 0, 0), ForceMode2D.Impulse);
                     beatBoxerMovement.SetBool("rolling", rollInitiate);
+                    Debug.Log(guts);
+                    animationCoolDown();
+                    StartCoroutine("staminaDrain");
+                   
+                   // myRigidBody.AddForce(new Vector3(10, 0, 0), ForceMode2D.Impulse);
+                    
                     
                 }
 
@@ -142,16 +130,7 @@ public class BeatBoxerScript : MonoBehaviour {
                 myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
                 beatBoxerMovement.SetBool("rolling", false);
             }
-           // else 
-            //{
-            //    Debug.Log(Input.GetButton("Horizontal"));
 
-            //    regenGutsOn = true;
-            //    rollInitiate = false;
-            //    myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
-            //    //myRigidBody.AddForce(new Vector3(1, 0, 0), ForceMode2D.Impulse);
-            //    beatBoxerMovement.SetBool("rolling", false);
-            //}
         }
         else
         {

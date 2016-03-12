@@ -11,17 +11,25 @@ public class BeatBoxerScript : MonoBehaviour {
     public int vitality = 10;
     public float agility = 15f;
     public float guts = 100f;
+    public float maxGuts;
+    public float gutSubRoll = 30f;
+    public float regenAmount;
     private int force = 10;
     public float maxSpeed = 10f;
     bool facingRight = true;
     public bool stop = true;
-
+    public bool rollInitiate = true;
     public Vector3 playerPos;
     private Rigidbody2D myRigidBody;
     private Rigidbody2D myRigidBody2;
-
+    private bool regenGutsOn=true;
+    private bool rollOn;
     public float x;
     public float y;
+    bool rollDrain = true;
+    public int gutsRoll = 10;
+    private float rollTimer;
+    private float rollCooldown = .5f;
     Animator beatBoxerMovement;
     public bool flipping;
     public shop[] shoppingList;
@@ -30,6 +38,7 @@ public class BeatBoxerScript : MonoBehaviour {
         myRigidBody = GetComponent<Rigidbody2D>();
         beatBoxerMovement = GetComponent<Animator>();
         flipping = false;
+        maxGuts = guts;
     }
 	void FixedUpdate()
     {
@@ -77,28 +86,78 @@ public class BeatBoxerScript : MonoBehaviour {
 
                 beatBoxerMovement.SetFloat("walking", Mathf.Abs(y));
             }
-
+        if (guts<=maxGuts&& regenGutsOn)
+        {
+            regenAmount = ((float)endurance+4) / 10;
+                guts += regenAmount * Time.deltaTime;
+            if (guts > maxGuts)
+            {
+                guts = maxGuts;
+            
+            }
+        }
+        
         if (Input.GetButton("Crouch")) {
             
             beatBoxerMovement.SetBool("crouch", true);
             stop = true;
+            rollOn = false;
             SendMessageUpwards("noInteruption", stop);
-            myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
-            if (Input.GetButton("Horizontal"))
+            //myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
+            if (Input.GetButton("Horizontal")==true&& rollInitiate ==false)
 
             {
+                //rollOn = true;
+                //regenGutsOn = false;
+                //rollInitiate = true;
+                //if (guts>20) { 
+                //beatBoxerMovement.SetBool("rolling", rollInitiate);
+                //myRigidBody.AddForce(new Vector3(10, 0, 0), ForceMode2D.Impulse);
 
-                beatBoxerMovement.SetBool("rolling", true);
-                myRigidBody.AddForce(new Vector3(10, 0, 0), ForceMode2D.Impulse);
+                //Debug.Log(Input.GetButton("Horizontal"));
+                //}
+                //else
+                //{
+                //    rollOn =false;
+                //}
+                
+                onlyRoll();
+            }
+            if (rollInitiate && guts>20)
+            {
+                rollOn = true;
+                if (rollOn)
+                {
+                    Debug.Log(guts);
+                    StartCoroutine("staminaDrain");
+                    animationCoolDown();
+                    myRigidBody.AddForce(new Vector3(10, 0, 0), ForceMode2D.Impulse);
+                    beatBoxerMovement.SetBool("rolling", rollInitiate);
+                    
+                }
+
             }
             else
             {
-                //myRigidBody.AddForce(new Vector3(1, 0, 0), ForceMode2D.Impulse);
+                myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
                 beatBoxerMovement.SetBool("rolling", false);
             }
+           // else 
+            //{
+            //    Debug.Log(Input.GetButton("Horizontal"));
+
+            //    regenGutsOn = true;
+            //    rollInitiate = false;
+            //    myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
+            //    //myRigidBody.AddForce(new Vector3(1, 0, 0), ForceMode2D.Impulse);
+            //    beatBoxerMovement.SetBool("rolling", false);
+            //}
         }
         else
         {
+            regenGutsOn = true;
+            beatBoxerMovement.SetBool("rolling", false);
+
             stop = false;
             beatBoxerMovement.SetBool("crouch", false);
             SendMessageUpwards("noInteruption", stop);
@@ -134,8 +193,25 @@ public class BeatBoxerScript : MonoBehaviour {
             
         }
 	}
+    void onlyRoll()
+    {
+        rollInitiate = true;
+        rollTimer = rollCooldown;
+    }
+    void animationCoolDown()
+    {
+        if (rollTimer > 0)
+        {
 
-    
+            rollTimer -= Time.deltaTime;
+        }
+        else
+        {
+
+            rollInitiate = false;
+            rollOn = false;
+        }
+    }
     void Flip()
     {
         facingRight = !facingRight;
@@ -154,4 +230,19 @@ public class BeatBoxerScript : MonoBehaviour {
         currentMoney += enemyMoney;
         Debug.Log(currentMoney);
     }
+    IEnumerator staminaDrain()
+    {
+        if (rollDrain) {
+
+            guts -= gutsRoll;
+          
+            rollDrain = false;
+            yield return new WaitForSeconds(rollTimer);
+            rollDrain = true;
+
+        }
+
+
+    }
+    
 }

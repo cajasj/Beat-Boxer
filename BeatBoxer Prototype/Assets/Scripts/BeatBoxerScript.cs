@@ -18,7 +18,8 @@ public class BeatBoxerScript : MonoBehaviour {
     public float maxSpeed = 10f;
     bool facingRight = true;
     public bool stop = true;
-    public bool rollInitiate = true;
+    public bool rollInitiate = false;
+    private BoxCollider2D offOn;
     public Vector3 playerPos;
     private Rigidbody2D myRigidBody;
     private Rigidbody2D myRigidBody2;
@@ -33,35 +34,19 @@ public class BeatBoxerScript : MonoBehaviour {
     Animator beatBoxerMovement;
     public bool flipping;
     public shop[] shoppingList;
+    public enemyScript rollImmunity;
+    public GameObject enemy;
     // Use this for initialization
     void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();
         beatBoxerMovement = GetComponent<Animator>();
+        enemy = GameObject.Find("enemyPlaceHolder");
+        rollImmunity = enemy.GetComponent<enemyScript>();
         flipping = false;
         maxGuts = guts;
+        offOn = GetComponent<BoxCollider2D>();
     }
-	void FixedUpdate()
-    {
-
-        ////////////////////////
-        //////Crouch//////////
-        //////////////////////
-        //if (Input.GetButton("Crouch"))
-        //{
-        //    beatBoxerMovement.SetBool("crouch", true);
-        //    stop = true;
-        //    SendMessageUpwards("noInteruption", stop);
-        //    myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
-
-        //}
-        //else
-        //{
-        //    stop = false;
-        //    beatBoxerMovement.SetBool("crouch", false);
-        //    SendMessageUpwards("noInteruption", stop);
-        //}
-
-    }
+	
     // Update is called once per frame
     void Update () {
         ////////////////////
@@ -115,8 +100,10 @@ public class BeatBoxerScript : MonoBehaviour {
                 if (rollOn)
                 {
                     beatBoxerMovement.SetBool("rolling", rollInitiate);
-                    Debug.Log(guts);
+
+                    Physics2D.IgnoreLayerCollision(11, 12,true);
                     animationCoolDown();
+                    
                     StartCoroutine("staminaDrain");
                    
                    // myRigidBody.AddForce(new Vector3(10, 0, 0), ForceMode2D.Impulse);
@@ -127,6 +114,7 @@ public class BeatBoxerScript : MonoBehaviour {
             }
             else
             {
+                
                 myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
                 beatBoxerMovement.SetBool("rolling", false);
             }
@@ -134,6 +122,7 @@ public class BeatBoxerScript : MonoBehaviour {
         }
         else
         {
+            Physics2D.IgnoreLayerCollision(11, 12, false);  
             regenGutsOn = true;
             beatBoxerMovement.SetBool("rolling", false);
 

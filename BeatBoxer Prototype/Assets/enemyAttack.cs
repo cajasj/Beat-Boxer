@@ -23,7 +23,6 @@ public class enemyAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(swipe);
         if (touch && !swipe)
         {
             swipe = true;

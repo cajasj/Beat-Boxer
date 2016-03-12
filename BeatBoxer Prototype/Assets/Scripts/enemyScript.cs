@@ -19,7 +19,7 @@ public class enemyScript : MonoBehaviour {
     public float cris;
     public Transform enemyMoving;
     public Transform target;
-    private BoxCollider2D offOn;
+    public BoxCollider2D offOn;
     bool flipper=false;
     public bool attack;
     

@@ -3,15 +3,16 @@ using System.Collections;
 using System;
 
 public class BeatBoxerScript : MonoBehaviour {
-    public int currentHealth=40;
+    public int currentHealth;
+    public int maxHealth=40;
     public int currentExp = 0;
     public int currentMoney = 0;
     public int strength = 1;
     public int endurance = 1;
     public int vitality = 10;
     public float agility = 15f;
-    public float guts = 100f;
-    public float maxGuts;
+    public float guts;
+    public float maxGuts = 100f;
     public float gutSubRoll = 30f;
     public float regenAmount;
     private int force = 10;
@@ -43,8 +44,9 @@ public class BeatBoxerScript : MonoBehaviour {
         enemy = GameObject.Find("enemyPlaceHolder");
         rollImmunity = enemy.GetComponent<enemyScript>();
         flipping = false;
-        maxGuts = guts;
+        guts = maxGuts;
         offOn = GetComponent<BoxCollider2D>();
+        currentHealth = maxHealth;
     }
 	
     // Update is called once per frame
@@ -73,7 +75,7 @@ public class BeatBoxerScript : MonoBehaviour {
             }
         if (guts<=maxGuts&& regenGutsOn)
         {
-            regenAmount = ((float)endurance+4) / 10;
+            regenAmount = ((float)endurance+10) / 10;
                 guts += regenAmount * Time.deltaTime;
             if (guts > maxGuts)
             {

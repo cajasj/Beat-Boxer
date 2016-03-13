@@ -9,7 +9,7 @@ public class userInterface : MonoBehaviour {
     public Text myEXP;
     public Text healthPoint;
     public Text myMoney;
-
+    public int myGuts;
     
     // Use this for initialization
     void Start () {
@@ -19,6 +19,9 @@ public class userInterface : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        myGuts = (int)myStats.guts;
+        healthPoint.text = myStats.currentHealth.ToString();
+        gutsu.text = myGuts.ToString();
         if (givePlayer)
         {
             myMoney.text= "$" + myStats.currentMoney;

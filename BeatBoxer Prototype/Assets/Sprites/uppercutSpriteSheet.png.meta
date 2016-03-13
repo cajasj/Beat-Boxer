@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 67228745f85eb2f46b0b5c58719bf2ea
-timeCreated: 1456201002
+timeCreated: 1457841961
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -64,18 +64,18 @@ TextureImporter:
         y: 7
         width: 86
         height: 137
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .480271727, y: .537153006}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: uppercutSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 137
-        y: 7
+        x: 140
+        y: 9
         width: 75
         height: 138
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .48868978, y: .49385342}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: uppercutSpriteSheet_2
       rect:
@@ -84,38 +84,38 @@ TextureImporter:
         y: 6
         width: 72
         height: 168
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .476436198, y: .27277264}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: uppercutSpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 361
+        x: 362
         y: 6
         width: 74
         height: 181
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .442681789, y: .110992968}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: uppercutSpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 461
+        x: 462
         y: 6
         width: 68
         height: 140
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .45009926, y: .481822044}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: uppercutSpriteSheet_5
       rect:
         serializedVersion: 2
         x: 559
-        y: 5
+        y: 6
         width: 63
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: uppercutSpriteSheet_6
       rect:
@@ -125,7 +125,7 @@ TextureImporter:
         width: 86
         height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

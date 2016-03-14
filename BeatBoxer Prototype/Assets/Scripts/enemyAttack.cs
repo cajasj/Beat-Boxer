@@ -61,6 +61,10 @@ public class enemyAttack : MonoBehaviour {
             myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
+    void weHit(bool noAttck)
+    {
+        swipe = noAttck;
+    }
     void touching(bool attackTouch)
     {
         touch = attackTouch;

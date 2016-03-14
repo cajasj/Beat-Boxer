@@ -80,11 +80,12 @@ public class enemyScript : MonoBehaviour {
             Flip();
             flipper = false;
         }
-             Debug.Log("attack is " + attack);
+             //Debug.Log("attack is " + attack);
         if (Vector3.Distance(enemyMoving.position, transform.position) < Range && Vector3.Distance(enemyMoving.position, transform.position)>1.3)
         {
-
-            move();
+            if (currHealth>0) { 
+                move();
+            }
         }
         if (Vector3.Distance(enemyMoving.position, transform.position)<=1.3)
         {
@@ -118,6 +119,7 @@ public class enemyScript : MonoBehaviour {
        
         currHealth -= damage;
         getHit = true;
+        SendMessageUpwards("weHit",false);
     }
 
     /////////////////////////////

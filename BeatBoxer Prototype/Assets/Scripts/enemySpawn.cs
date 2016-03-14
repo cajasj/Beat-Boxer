@@ -7,12 +7,12 @@ public class enemySpawn : MonoBehaviour {
 // Variable to know how fast we should create new enemies
 public float  spawnTime = 2f;
     public float spawnCount = 0;
-
-void Start()
+    public Renderer rend;
+    void Start()
     {
-        // Call the 'addEnemy' function every 'spawnTime' seconds
-       
-            InvokeRepeating("addEnemy", spawnTime, spawnTime);
+        // Ceall the 'addEnemy' function every 'spawnTime' seconds
+        rend = GetComponent<Renderer>();
+        InvokeRepeating("addEnemy", spawnTime, spawnTime);
             
         
     }
@@ -24,11 +24,13 @@ void Start()
         // See image below
         if (spawnCount < 10)
         {
-            var x1 = transform.position.x - GetComponent<Renderer>().bounds.size.x / 2;
-            var x2 = transform.position.x + GetComponent<Renderer>().bounds.size.x / 2;
-
+            float y1 = transform.position.y + rend.bounds.size.y;
+            float y2 = transform.position.y- rend.bounds.size.y ;
+            y1 -= 3;
+            y2 += 3;
+            Debug.Log(GetComponent<Renderer>().bounds.size.y);
             // Randomly pick a point within the spawn object
-            var spawnPoint = new Vector2(Random.Range(x1, x2), transform.position.y);
+            var spawnPoint = new Vector2(transform.position.x, Random.Range(y1, y2) );
             spawnCount++;
             // Create an enemy at the 'spawnPoint' position
             Instantiate(enemy, spawnPoint, Quaternion.identity);

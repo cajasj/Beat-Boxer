@@ -4,7 +4,7 @@ using System.Collections;
 public class bbAttack : MonoBehaviour
 {
     private bool jabAttack = false;
-    private float attackCoolDown=.3f;
+    private float attackCoolDown=.4f;
     private float attackTimer=0;
     private bool noTrigger;
     public Collider2D jabTrigger;
@@ -47,7 +47,7 @@ public class bbAttack : MonoBehaviour
         if ((noTrigger == false) &&
               (!Input.GetButton("Horizontal") && !Input.GetButton("Vertical")))
         {
-            myRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
+            myRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
             jabAttack = true;
             attackTimer = attackCoolDown;
             jabTrigger.enabled = true;

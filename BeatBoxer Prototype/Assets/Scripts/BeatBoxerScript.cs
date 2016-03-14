@@ -57,8 +57,8 @@ public class BeatBoxerScript : MonoBehaviour {
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
         myRigidBody.velocity = new Vector3(x * maxSpeed, y * maxSpeed, myRigidBody.velocity.y);
-      
-            if (Input.GetButton("Horizontal"))
+        myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        if (Input.GetButton("Horizontal"))
             {
                 beatBoxerMovement.SetFloat("walking", Mathf.Abs(x));
             }
@@ -203,6 +203,10 @@ public class BeatBoxerScript : MonoBehaviour {
         currentMoney += enemyMoney;
         Debug.Log(currentMoney);
     }
+    public void beatBoxerHits(int getHit)
+    {
+        currentHealth -= getHit;
+    }
     IEnumerator staminaDrain()
     {
         if (rollDrain) {
@@ -210,7 +214,7 @@ public class BeatBoxerScript : MonoBehaviour {
             guts -= gutsRoll;
             
             rollDrain = false;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds((float).5);
             rollDrain = true;
 
         }

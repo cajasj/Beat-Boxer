@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class uppercutTrigger : MonoBehaviour {
-
-    private static int hookDamage = 25;
+public class upperCutTrigger : MonoBehaviour {
+    public BeatBoxerScript beatboxerStrength;
+    private static int upperCutDamage = 50;
+    private static float ludacris = 20;
+    
     GameObject col;
+  
     void Update()
     {
 
@@ -16,7 +19,8 @@ public class uppercutTrigger : MonoBehaviour {
         if (col.isTrigger == false && col.CompareTag("enemy"))
         {
             col.isTrigger = true;
-            col.SendMessageUpwards("underAttack", hookDamage);
+            col.SendMessageUpwards("underAttack", upperCutDamage + beatboxerStrength.strength);
+            col.SendMessageUpwards("knockMeUp", ludacris);
         }
         col.isTrigger = false;
     }

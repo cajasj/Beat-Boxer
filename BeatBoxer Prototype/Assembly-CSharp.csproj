@@ -52,8 +52,10 @@
      <Compile Include="Assets\Scripts\benzaAttack.cs" />
      <Compile Include="Assets\Scripts\benzaTrigger.cs" />
      <Compile Include="Assets\Scripts\comboSystem.cs" />
+     <Compile Include="Assets\Scripts\comboSystemClass.cs" />
      <Compile Include="Assets\Scripts\courchScript.cs" />
      <Compile Include="Assets\Scripts\disableTempCollider.cs" />
+     <Compile Include="Assets\Scripts\enemyAttack.cs" />
      <Compile Include="Assets\Scripts\enemyScript.cs" />
      <Compile Include="Assets\Scripts\enemySpawn.cs" />
      <Compile Include="Assets\Scripts\floatingDamage.cs" />
@@ -70,10 +72,10 @@
      <Compile Include="Assets\Scripts\rollingScript.cs" />
      <Compile Include="Assets\Scripts\shop.cs" />
      <Compile Include="Assets\Scripts\shopitemDB.cs" />
+     <Compile Include="Assets\Scripts\swipeTrigger.cs" />
+     <Compile Include="Assets\Scripts\upperCutTrigger.cs" />
      <Compile Include="Assets\Scripts\uppercutAttack.cs" />
-     <Compile Include="Assets\Scripts\uppercutTrigger.cs" />
      <Compile Include="Assets\Scripts\userInterface.cs" />
-     <Compile Include="Assets\enemyAttack.cs" />
      <Compile Include="Assets\scr.cs" />
      <None Include="Assets\Fonts\OFL.txt" />
  <Reference Include="UnityEngine.UI">

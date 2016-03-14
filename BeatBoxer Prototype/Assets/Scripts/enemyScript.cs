@@ -22,7 +22,7 @@ public class enemyScript : MonoBehaviour {
     public BoxCollider2D offOn;
     bool flipper=false;
     public bool attack;
-    
+    public bool getHit;
     
     // Use this for initialization
     void Start () {
@@ -39,6 +39,7 @@ public class enemyScript : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        
        //////////////////////////
        ///////KnockBack/////////
        ////////////////////////
@@ -53,7 +54,7 @@ public class enemyScript : MonoBehaviour {
                 knock = false;
                 enemeyRigidBody.isKinematic = true;
                 offOn.enabled = true;
-          
+                //getHit = false;
             }
         }
         //////////////////////////////////
@@ -72,27 +73,29 @@ public class enemyScript : MonoBehaviour {
             Flip();
             flipper = true;
         }
-
+  
         if (transform.position.x > enemyMoving.position.x && flipper == true)
         {
 
             Flip();
             flipper = false;
         }
-
-        if (Vector3.Distance(enemyMoving.position, transform.position) < Range&& attack ==false)
+             Debug.Log("attack is " + attack);
+        if (Vector3.Distance(enemyMoving.position, transform.position) < Range && Vector3.Distance(enemyMoving.position, transform.position)>1.3)
         {
+
             move();
         }
-        if (Vector3.Distance(enemyMoving.position, transform.position)<2.2)
+        if (Vector3.Distance(enemyMoving.position, transform.position)<=1.3)
         {
-            attack = true;
-            SendMessageUpwards("touching", attack);
+            attack = false;
+            SendMessageUpwards("touching", true);
+            
         }
         else
         {
-            attack = false;
-            SendMessageUpwards("touching", attack);
+            attack = true;
+            SendMessageUpwards("touching", false);
         }
     }
     
@@ -103,8 +106,8 @@ public class enemyScript : MonoBehaviour {
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, enemyMoving.position, step);
-      
-        
+        transform.Rotate(0, 0, 0);
+
     }
 
     /////////////////////////////
@@ -114,7 +117,7 @@ public class enemyScript : MonoBehaviour {
     {
        
         currHealth -= damage;
-
+        getHit = true;
     }
 
     /////////////////////////////
@@ -157,7 +160,21 @@ public class enemyScript : MonoBehaviour {
         }
        
     }
+    public void knockMeUp(float ludacrisGetBack)
+    {
+        luda = 0f;
+        cris = ludacrisGetBack;
+        knockBackSetting();
+        if (enemyObject.flipping == false)
+        {
+            enemeyRigidBody.AddForce(new Vector3(luda, cris, 0), ForceMode2D.Impulse);
+        }
+        else
+        {
+            enemeyRigidBody.AddForce(new Vector3(-luda, -cris, 0), ForceMode2D.Impulse);
+        }
 
+    }
     /////////////////////////////
     ///Knocks Back Diagonally///
     ///////////////////////////
@@ -172,8 +189,12 @@ public class enemyScript : MonoBehaviour {
             luda = 30;
             cris = 24;
             Object.Destroy(gameObject, 1.6f);
-           
-                
+
+
+        }
+        else
+        {
+            enemeyRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
         
     }

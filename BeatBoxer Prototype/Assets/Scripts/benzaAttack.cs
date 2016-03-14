@@ -52,7 +52,7 @@ public class benzaAttack : MonoBehaviour {
         if ((noTrigger == false) &&
                (!Input.GetButton("Horizontal") && !Input.GetButton("Vertical")))
         {
-            myRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
+            myRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
             jabAttack = true;
             attackTimer = attackCoolDown;
             benzaTrigger.enabled = true;

@@ -80,10 +80,10 @@ public class enemyScript : MonoBehaviour {
             Flip();
             flipper = false;
         }
-             //Debug.Log("attack is " + attack);
+             //sDebug.Log("attack is " + attack);
         if (Vector3.Distance(enemyMoving.position, transform.position) < Range && Vector3.Distance(enemyMoving.position, transform.position)>1.3)
         {
-            if (currHealth>0) { 
+            if (currHealth>0&& attack) { 
                 move();
             }
         }

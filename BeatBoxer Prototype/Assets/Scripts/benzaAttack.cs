@@ -14,8 +14,10 @@ public class benzaAttack : MonoBehaviour {
     private bool noTrigger;
     public Collider2D benzaTrigger;
     private Animator anim;
+    private Rigidbody2D myRigidBody;
     void Awake()
     {
+        myRigidBody = GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         benzaTrigger.enabled = false;
     }
@@ -50,6 +52,7 @@ public class benzaAttack : MonoBehaviour {
         if ((noTrigger == false) &&
                (!Input.GetButton("Horizontal") && !Input.GetButton("Vertical")))
         {
+            myRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
             jabAttack = true;
             attackTimer = attackCoolDown;
             benzaTrigger.enabled = true;
@@ -67,6 +70,8 @@ public class benzaAttack : MonoBehaviour {
 
             jabAttack = false;
             benzaTrigger.enabled = false;
+            myRigidBody.constraints = RigidbodyConstraints2D.None;
+            myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
     public void noInteruption(bool stop)

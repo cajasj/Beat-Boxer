@@ -9,8 +9,11 @@ public class hookAttack : MonoBehaviour
     private bool noTrigger;
     public Collider2D hookTrigger;
     private Animator anim;
+
+    private Rigidbody2D myRigidBody;
     void Awake()
     {
+        myRigidBody = GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         hookTrigger.enabled = false;
     }
@@ -36,6 +39,7 @@ public class hookAttack : MonoBehaviour
         {
             animationCoolDown();
             anim.SetBool("hook", jabAttack);
+
         }
         
 
@@ -45,6 +49,7 @@ public class hookAttack : MonoBehaviour
         if ((noTrigger == false) &&
                (!Input.GetButton("Horizontal") && !Input.GetButton("Vertical")))
         {
+            myRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
             jabAttack = true;
             attackTimer = attackCoolDown;
             hookTrigger.enabled = true;
@@ -59,9 +64,11 @@ public class hookAttack : MonoBehaviour
         }
         else
         {
-
+            
             jabAttack = false;
             hookTrigger.enabled = false;
+            myRigidBody.constraints = RigidbodyConstraints2D.None;
+            myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
     public void noInteruption(bool stop)

@@ -29,7 +29,7 @@ public class BeatBoxerScript : MonoBehaviour {
     public float x;
     public float y;
     bool rollDrain = true;
-    public int gutsRoll = 10;
+    private int gutsRoll = 10;
     private float rollTimer;
     private float rollCooldown = .5f;
     Animator beatBoxerMovement;
@@ -85,37 +85,38 @@ public class BeatBoxerScript : MonoBehaviour {
         }
         
         if (Input.GetButton("Crouch")) {
-            
+            beatBoxerMovement.SetFloat("walking", Mathf.Abs(0));
             beatBoxerMovement.SetBool("crouch", true);
             stop = true;
             rollOn = false;
             SendMessageUpwards("noInteruption", stop);
+           
             //myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
-            if (Input.GetButton("Horizontal")==true&& rollInitiate ==false)
+            if (Input.GetButton("Horizontal") && !rollInitiate)
 
             {
+                
                 onlyRoll();
             }
-            if (rollInitiate && guts>20)
+            if (rollInitiate && guts>=gutsRoll)
             {
                 rollOn = true;
                 if (rollOn)
                 {
-                    beatBoxerMovement.SetBool("rolling", rollInitiate);
+                    beatBoxerMovement.SetBool("rolling", true);
 
                     Physics2D.IgnoreLayerCollision(11, 12,true);
-                    animationCoolDown();
+                    
                     
                     StartCoroutine("staminaDrain");
-                   
-                   // myRigidBody.AddForce(new Vector3(10, 0, 0), ForceMode2D.Impulse);
-                    
-                    
-                }
 
-            }
-            else
+                    // myRigidBody.AddForce(new Vector3(10, 0, 0), ForceMode2D.Impulse);
+
+
+                }
+            }else
             {
+
                 
                 myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
                 beatBoxerMovement.SetBool("rolling", false);
@@ -126,6 +127,8 @@ public class BeatBoxerScript : MonoBehaviour {
         {
             Physics2D.IgnoreLayerCollision(11, 12, false);  
             regenGutsOn = true;
+            //rollOn = false;
+            rollInitiate = false;
             beatBoxerMovement.SetBool("rolling", false);
 
             stop = false;
@@ -179,7 +182,7 @@ public class BeatBoxerScript : MonoBehaviour {
         {
 
             rollInitiate = false;
-            rollOn = false;
+            
         }
     }
     void Flip()
@@ -203,11 +206,11 @@ public class BeatBoxerScript : MonoBehaviour {
     IEnumerator staminaDrain()
     {
         if (rollDrain) {
-
+            animationCoolDown();
             guts -= gutsRoll;
-          
+            
             rollDrain = false;
-            yield return new WaitForSeconds(rollTimer);
+            yield return new WaitForSeconds(1);
             rollDrain = true;
 
         }

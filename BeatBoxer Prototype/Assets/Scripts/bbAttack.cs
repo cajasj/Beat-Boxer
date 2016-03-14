@@ -9,9 +9,10 @@ public class bbAttack : MonoBehaviour
     private bool noTrigger;
     public Collider2D jabTrigger;
     private Animator anim;
-    
+    private Rigidbody2D myRigidBody;
     void Awake()
     {
+        myRigidBody = GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         jabTrigger.enabled = false;
     }
@@ -46,6 +47,7 @@ public class bbAttack : MonoBehaviour
         if ((noTrigger == false) &&
               (!Input.GetButton("Horizontal") && !Input.GetButton("Vertical")))
         {
+            myRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
             jabAttack = true;
             attackTimer = attackCoolDown;
             jabTrigger.enabled = true;
@@ -63,7 +65,9 @@ public class bbAttack : MonoBehaviour
 
             jabAttack = false;
             jabTrigger.enabled = false;
-            
+            myRigidBody.constraints = RigidbodyConstraints2D.None;
+            myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         }
     }
     public void noInteruption(bool stop)

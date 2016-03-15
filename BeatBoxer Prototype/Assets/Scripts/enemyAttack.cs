@@ -5,7 +5,7 @@ public class enemyAttack : MonoBehaviour {
     private Animator anim;
     private bool swipe = false;
     private bool touch;
-    private float attackCoolDown = .3f;
+    private float attackCoolDown = 1f;
     private float attackTimer = 0;
     //private bool noTrigger;
     enemyScript test;
@@ -26,11 +26,13 @@ public class enemyAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
         if (touch && !swipe)
         {
             swipe = true;
             attackTimer = attackCoolDown;
             swipeTrigger.enabled = true;
+            SendMessageUpwards("stopAttack", swipe);
         }
         if(swipeTrigger.enabled == true)
         {
@@ -56,6 +58,7 @@ public class enemyAttack : MonoBehaviour {
         {
 
             swipe = false;
+            SendMessageUpwards("stopAttack", swipe);
             swipeTrigger.enabled = false;
             myRigidBody.constraints = RigidbodyConstraints2D.None;
             myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;

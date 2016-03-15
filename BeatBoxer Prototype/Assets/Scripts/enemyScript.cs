@@ -23,7 +23,7 @@ public class enemyScript : MonoBehaviour {
     bool flipper=false;
     public bool attack;
     public bool getHit;
-    
+    private bool stopit;
     // Use this for initialization
     void Start () {
         enemeyRigidBody = GetComponent<Rigidbody2D>();
@@ -69,34 +69,38 @@ public class enemyScript : MonoBehaviour {
         ///////////////////////
         if (transform.position.x < enemyMoving.position.x && flipper == false)
         {
-            
-            Flip();
-            flipper = true;
+            if (!stopit)
+            {
+                Flip();
+                flipper = true;
+            }
         }
   
         if (transform.position.x > enemyMoving.position.x && flipper == true)
         {
-
-            Flip();
-            flipper = false;
+            if (!attack)
+            {
+                Flip();
+                flipper = false;
+            }
         }
              //sDebug.Log("attack is " + attack);
-        if (Vector3.Distance(enemyMoving.position, transform.position) < Range && Vector3.Distance(enemyMoving.position, transform.position)>1.3)
+        if (Vector3.Distance(enemyMoving.position, transform.position) < Range && Vector3.Distance(enemyMoving.position, transform.position)>1.5)
         {
-            if (currHealth>0&& attack) { 
+            if (currHealth>0&& !stopit) { 
                 move();
             }
         }
-        if (Vector3.Distance(enemyMoving.position, transform.position)<=1.3)
+        if (Vector3.Distance(enemyMoving.position, transform.position)<=1.5)
         {
-            attack = false;
-            SendMessageUpwards("touching", true);
+            attack = true;
+            SendMessageUpwards("touching", attack);
             
         }
         else
         {
-            attack = true;
-            SendMessageUpwards("touching", false);
+            attack = false;
+            SendMessageUpwards("touching", attack);
         }
     }
     
@@ -200,7 +204,10 @@ public class enemyScript : MonoBehaviour {
         }
         
     }
-
+    void stopAttack(bool stopMe)
+    {
+        stopit = stopMe;
+    }
     /////////////////////////////
     ///Change Object Property/// 
     /// when knocked back//////
@@ -229,6 +236,7 @@ public class enemyScript : MonoBehaviour {
 
     void Flip()
     {
+       
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;

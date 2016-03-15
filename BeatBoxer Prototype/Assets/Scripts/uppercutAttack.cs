@@ -32,10 +32,11 @@ public class uppercutAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
 
+       
             if (keyWumboCombo.check() && !upperCut)
             {
+                
                 Debug.Log("success");
                 onlyAttack();
             }
@@ -58,7 +59,7 @@ public class uppercutAttack : MonoBehaviour
         
         upperCut = true;
         attackTimer = attackCoolDown;
-        upperCutTrigger.enabled = true;
+        StartCoroutine(delayAttack());
     }
     void animationCoolDown()
     {
@@ -71,13 +72,20 @@ public class uppercutAttack : MonoBehaviour
         else
         {
             beatBoxerStats.guts -= gutsUsed;
-            stopMadness = new comboSystemClass(false);
-            keyWumboCombo.check();
+            //stopMadness = new comboSystemClass(false);
+            upperCutTrigger.enabled = false;
             myRigidBody.constraints = RigidbodyConstraints2D.None;
             myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
             upperCut = false;
         }
     }
 
-
+    IEnumerator delayAttack()
+    {
+       
+        yield return new WaitForSeconds(1);
+        upperCutTrigger.enabled = true;
+        yield return new WaitForSeconds(0);
+        upperCutTrigger.enabled = false;
+    }
 }

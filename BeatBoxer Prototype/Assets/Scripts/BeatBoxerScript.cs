@@ -38,6 +38,7 @@ public class BeatBoxerScript : MonoBehaviour {
     public bool flipping;
     public shop[] shoppingList;
     public GameObject enemy;
+    public afterDefeat beaten;
     // Use this for initialization
     void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -78,6 +79,19 @@ public class BeatBoxerScript : MonoBehaviour {
         y = Input.GetAxis("Vertical");
         myRigidBody.velocity = new Vector3(x * maxSpeed, y * maxSpeed, myRigidBody.velocity.y);
         myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        if (currentHealth <= 0)
+        {
+            beatBoxerMovement.SetBool("noHealth", true);
+            myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
+            beaten.youLose(true);
+            //beatBoxerMovement.SetFloat("walking", Mathf.Abs(0));
+        }
+        else
+        {
+            beaten.youLose(false);
+            beatBoxerMovement.SetBool("noHealth", false);
+            myRigidBody.velocity = new Vector3(x * maxSpeed, y * maxSpeed, myRigidBody.velocity.y);
+        }
         if (Input.GetButton("Horizontal"))
             {
                 beatBoxerMovement.SetFloat("walking", Mathf.Abs(x));
@@ -234,6 +248,7 @@ public class BeatBoxerScript : MonoBehaviour {
     public void beatBoxerHits(int getHit)
     {
         currentHealth -= getHit;
+       
     }
     public void newMaxGuts()
     {

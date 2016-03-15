@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\upperCutTrigger.cs" />
      <Compile Include="Assets\Scripts\uppercutAttack.cs" />
      <Compile Include="Assets\Scripts\userInterface.cs" />
+     <Compile Include="Assets\afterDefeat.cs" />
      <Compile Include="Assets\bossAttack1.cs" />
      <Compile Include="Assets\bossAttack2.cs" />
      <Compile Include="Assets\bossScript.cs" />

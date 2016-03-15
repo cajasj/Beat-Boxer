@@ -13,7 +13,7 @@ public class enemyScript : MonoBehaviour {
     public GameObject beatBoxer;
     float speed;
     public int enemyEXP;
-    public int enemyMoney;
+    public int enemyMoney=10;
     private float Range = 15f;
     public float luda;
     public float cris;

@@ -42,7 +42,10 @@ public class BeatBoxerScript : MonoBehaviour {
         myRigidBody = GetComponent<Rigidbody2D>();
         beatBoxerMovement = GetComponent<Animator>();
         enemy = GameObject.Find("enemyPlaceHolder");
-        rollImmunity = enemy.GetComponent<enemyScript>();
+        if (Application.loadedLevel != 3)
+        {
+            rollImmunity = enemy.GetComponent<enemyScript>();
+        }
         flipping = false;
         guts = maxGuts;
         offOn = GetComponent<BoxCollider2D>();
@@ -219,7 +222,6 @@ public class BeatBoxerScript : MonoBehaviour {
     public void awardMoney(int enemyMoney)
     {
         currentMoney += enemyMoney;
-        currentMoney=PlayerPrefs.GetInt("money", currentMoney);
         Debug.Log(currentMoney);
     }
     public void beatBoxerHits(int getHit)

@@ -15,8 +15,12 @@ public class userInterface : MonoBehaviour {
     void Start () {
         healthPoint.text = myStats.currentHealth.ToString();
         gutsu.text = myStats.guts.ToString();
+        myMoney.text = "$" + PlayerPrefs.GetInt("money");
+        myEXP.text = PlayerPrefs.GetInt("exp").ToString();
     }
-	
+	void Awake()
+    {
+    }
 	// Update is called once per frame
 	void Update () {
         myGuts = (int)myStats.guts;

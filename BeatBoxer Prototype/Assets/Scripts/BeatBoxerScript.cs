@@ -5,9 +5,9 @@ using System;
 public class BeatBoxerScript : MonoBehaviour {
     public int currentHealth;
     public int maxHealth=40;
-    public int currentExp = 0;
-    public int currentMoney = 0;
-    public int strength = 1;
+    public int currentExp;
+    public int currentMoney;
+    public int strength = 20;
     public int endurance = 1;
     public int vitality = 10;
     public float agility = 15f;
@@ -47,8 +47,26 @@ public class BeatBoxerScript : MonoBehaviour {
         guts = maxGuts;
         offOn = GetComponent<BoxCollider2D>();
         currentHealth = maxHealth;
+        if (Application.loadedLevel == 1) { 
+            if (PlayerPrefs.HasKey("money"))
+            {
+                    PlayerPrefs.DeleteAll();
+            }
+        }
+        else
+        {
+           currentExp= PlayerPrefs.GetInt("exp");
+            currentMoney = PlayerPrefs.GetInt("money");
+            strength = PlayerPrefs.GetInt("strength");
+            agility = PlayerPrefs.GetInt("agility");
+            endurance = PlayerPrefs.GetInt("endurance");
+            vitality = PlayerPrefs.GetInt("vitality");
+            currentHealth = PlayerPrefs.GetInt("health");
+            guts = PlayerPrefs.GetInt("guts");
+        }
+        
     }
-	
+
     // Update is called once per frame
     void Update () {
         ////////////////////
@@ -201,6 +219,7 @@ public class BeatBoxerScript : MonoBehaviour {
     public void awardMoney(int enemyMoney)
     {
         currentMoney += enemyMoney;
+        currentMoney=PlayerPrefs.GetInt("money", currentMoney);
         Debug.Log(currentMoney);
     }
     public void beatBoxerHits(int getHit)

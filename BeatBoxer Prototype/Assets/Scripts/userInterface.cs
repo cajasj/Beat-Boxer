@@ -37,4 +37,8 @@ public class userInterface : MonoBehaviour {
     {
         givePlayer = unlock;
     }
+    public void spend(bool unlock)
+    {
+        givePlayer = unlock;
+    }
 }

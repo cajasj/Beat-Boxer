@@ -28,6 +28,7 @@ public class disableTempCollider : MonoBehaviour {
         {
             deadEnemies = false;
             yourRewards.awardPlayer(deadEnemies);
+            
         }
     }
 

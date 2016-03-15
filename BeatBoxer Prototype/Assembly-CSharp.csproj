@@ -76,6 +76,8 @@
      <Compile Include="Assets\Scripts\upperCutTrigger.cs" />
      <Compile Include="Assets\Scripts\uppercutAttack.cs" />
      <Compile Include="Assets\Scripts\userInterface.cs" />
+     <Compile Include="Assets\enterGym.cs" />
+     <Compile Include="Assets\increaseStats.cs" />
      <Compile Include="Assets\scr.cs" />
      <None Include="Assets\Fonts\OFL.txt" />
  <Reference Include="UnityEngine.UI">

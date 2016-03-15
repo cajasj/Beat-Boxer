@@ -9,7 +9,9 @@ public class BeatBoxerScript : MonoBehaviour {
     public int currentMoney;
     public int strength = 20;
     public int endurance = 1;
+    public int maxEnd;
     public int vitality = 10;
+    public int maxVit;
     public float agility = 15f;
     public float guts;
     public float maxGuts = 100f;
@@ -35,17 +37,14 @@ public class BeatBoxerScript : MonoBehaviour {
     Animator beatBoxerMovement;
     public bool flipping;
     public shop[] shoppingList;
-    public enemyScript rollImmunity;
     public GameObject enemy;
     // Use this for initialization
     void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();
         beatBoxerMovement = GetComponent<Animator>();
         enemy = GameObject.Find("enemyPlaceHolder");
-        if (Application.loadedLevel != 3)
-        {
-            rollImmunity = enemy.GetComponent<enemyScript>();
-        }
+        maxEnd = endurance;
+        maxVit = vitality;
         flipping = false;
         guts = maxGuts;
         offOn = GetComponent<BoxCollider2D>();
@@ -156,8 +155,16 @@ public class BeatBoxerScript : MonoBehaviour {
             beatBoxerMovement.SetBool("crouch", false);
             SendMessageUpwards("noInteruption", stop);
         }
-               
 
+        if (vitality>maxVit)
+        {
+            newMaxHealth();
+        }
+        if (endurance> maxEnd)
+        {
+            newMaxGuts();
+        }
+       
         /////////////////
         ////Running/////
         ///////////////
@@ -227,6 +234,18 @@ public class BeatBoxerScript : MonoBehaviour {
     public void beatBoxerHits(int getHit)
     {
         currentHealth -= getHit;
+    }
+    public void newMaxGuts()
+    {
+        maxGuts += 10;
+        guts = maxGuts;
+        maxEnd = endurance;
+    }
+    public void newMaxHealth()
+    {
+        maxHealth += 20;
+        maxVit = vitality;
+        currentHealth = maxHealth;
     }
     IEnumerator staminaDrain()
     {

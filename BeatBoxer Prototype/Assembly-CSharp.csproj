@@ -76,7 +76,12 @@
      <Compile Include="Assets\Scripts\upperCutTrigger.cs" />
      <Compile Include="Assets\Scripts\uppercutAttack.cs" />
      <Compile Include="Assets\Scripts\userInterface.cs" />
+     <Compile Include="Assets\bossAttack1.cs" />
+     <Compile Include="Assets\bossAttack2.cs" />
+     <Compile Include="Assets\bossScript.cs" />
      <Compile Include="Assets\enterGym.cs" />
+     <Compile Include="Assets\hammerTimeScript.cs" />
+     <Compile Include="Assets\hammerTimeTrigger.cs" />
      <Compile Include="Assets\increaseStats.cs" />
      <Compile Include="Assets\scr.cs" />
      <None Include="Assets\Fonts\OFL.txt" />

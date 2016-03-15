@@ -22,7 +22,7 @@ public class increaseStats : MonoBehaviour {
             {
                 beatBoxer.strength += 1;
                 beatBoxer.currentExp -= cost;
-                cost = cost * 2;
+                cost = cost+(cost/2);
             }
             strengthClicked = false;
 

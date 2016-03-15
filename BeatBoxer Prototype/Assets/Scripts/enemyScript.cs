@@ -3,7 +3,7 @@ using System.Collections;
 
 public class enemyScript : MonoBehaviour {
     private bool knock = false;
-    private float knockbackDuration = .3f;
+    private float knockbackDuration = .7f;
     private float knockbackTimer = 0;
 
     public int currHealth;

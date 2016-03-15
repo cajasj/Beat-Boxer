@@ -1,64 +1,62 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class uppercutAttack : MonoBehaviour
-{
-    // Use this for initialization
-    //int i;
+public class hammerTimeScript : MonoBehaviour {
     private float attackCoolDown = .3f;
     private float attackTimer;
     private Animator anim;
-    private float gutsUsed=3.33f;
-    private comboSystemClass keyWumboCombo = new comboSystemClass(new string[] { "Light Punch", "Light Punch", "Light Punch", "Heavy Punch", "Crouch" });
+    private float gutsUsed = 10.33f;
+    private comboSystemClass keyWumboCombo = new comboSystemClass(new string[] { "Horizontal", "Horizontal", "Crouch", "Heavy Punch" });
     private float comboReset;
     private bool completeWumboCombo = false;
-    private bool upperCut = false;
+    private bool hammerTime = false;
     private comboSystemClass stopMadness;
     BeatBoxerScript beatBoxerStats;
     private Rigidbody2D myRigidBody;
-    public Collider2D hammerTimeTrigger;
+    public Collider2D upperCutTrigger;
     void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
-        hammerTimeTrigger.enabled = false;
+        upperCutTrigger.enabled = false;
         beatBoxerStats = gameObject.GetComponent<BeatBoxerScript>();
         anim = gameObject.GetComponent<Animator>();
     }
     void Start()
     {
-       
+
     }
-   
+
     // Update is called once per frame
     void Update()
     {
 
-       
-            if (keyWumboCombo.check() && !upperCut)
-            {
-                
-                Debug.Log("success");
-                onlyAttack();
-            }
+
+        if (keyWumboCombo.check() && !hammerTime)
+        {
+
+            Debug.Log("success");
+            onlyAttack();
+        }
 
 
-            if (upperCut)
-            {
+        if (hammerTime)
+        {
 
-                animationCoolDown();
-                anim.SetBool("uppercut", upperCut);
+            animationCoolDown();
+            anim.SetBool("hammerTime", hammerTime);
 
-            }
+        }
 
-       
+
     }
 
 
     void onlyAttack()
     {
-        
-        upperCut = true;
+
+        hammerTime = true;
         attackTimer = attackCoolDown;
+        upperCutTrigger.enabled = true;
         StartCoroutine(delayAttack());
     }
     void animationCoolDown()
@@ -73,19 +71,19 @@ public class uppercutAttack : MonoBehaviour
         {
             beatBoxerStats.guts -= gutsUsed;
             //stopMadness = new comboSystemClass(false);
-            hammerTimeTrigger.enabled = false;
+            upperCutTrigger.enabled = false;
             myRigidBody.constraints = RigidbodyConstraints2D.None;
             myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-            upperCut = false;
+            hammerTime = false;
         }
     }
 
     IEnumerator delayAttack()
     {
-       
-        yield return new WaitForSeconds(1);
-        hammerTimeTrigger.enabled = true;
+
         yield return new WaitForSeconds(0);
-        hammerTimeTrigger.enabled = false;
+        upperCutTrigger.enabled = true;
+        yield return new WaitForSeconds(0);
+        upperCutTrigger.enabled = false;
     }
 }

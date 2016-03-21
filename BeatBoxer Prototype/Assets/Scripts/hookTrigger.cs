@@ -20,7 +20,7 @@ public class hookTrigger : MonoBehaviour
         {
             col.isTrigger = true;
             col.SendMessageUpwards("underAttack", hookDamage+beatboxerStrength.strength);
-            col.SendMessageUpwards("knockMeDown", ludacris);
+            col.SendMessageUpwards("knockMeDown", ludacris+beatboxerStrength.agility);
         }
         col.isTrigger = false;
     }

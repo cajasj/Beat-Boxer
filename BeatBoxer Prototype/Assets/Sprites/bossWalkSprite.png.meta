@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5518f8a9c321b1641aa575a9c4b707f7
-timeCreated: 1458018721
+timeCreated: 1458506024
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -61,11 +61,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 12
-        y: 45
+        y: 46
         width: 82
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: bossWalkSprite_1
       rect:
@@ -75,7 +75,7 @@ TextureImporter:
         width: 86
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: bossWalkSprite_2
       rect:
@@ -85,7 +85,7 @@ TextureImporter:
         width: 88
         height: 144
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: bossWalkSprite_3
       rect:
@@ -95,7 +95,7 @@ TextureImporter:
         width: 87
         height: 142
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: bossWalkSprite_4
       rect:
@@ -105,17 +105,17 @@ TextureImporter:
         width: 83
         height: 144
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: bossWalkSprite_5
       rect:
         serializedVersion: 2
-        x: 516
+        x: 517
         y: 44
         width: 83
         height: 144
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: bossWalkSprite_6
       rect:
@@ -125,7 +125,7 @@ TextureImporter:
         width: 82
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

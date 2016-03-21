@@ -42,14 +42,13 @@ public class comboSystemClass {
                 {
                     i = 0;
                     returnMe = false;
-                    Debug.Log("messed up the combo you pressed " + mahKeys);
+                   
 
                 }
                 if (i >= combo.Length)
                 {
                     i = 0;
                     returnMe = true;
-                    Debug.Log("complete sequence of button press");
 
                 }
                 else

@@ -47,10 +47,14 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BeatBoxerScript.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
+     <Compile Include="Assets\Scripts\afterDefeat.cs" />
      <Compile Include="Assets\Scripts\barScript.cs" />
      <Compile Include="Assets\Scripts\bbAttack.cs" />
      <Compile Include="Assets\Scripts\benzaAttack.cs" />
      <Compile Include="Assets\Scripts\benzaTrigger.cs" />
+     <Compile Include="Assets\Scripts\bossAttack1.cs" />
+     <Compile Include="Assets\Scripts\bossAttack2.cs" />
+     <Compile Include="Assets\Scripts\bossScript.cs" />
      <Compile Include="Assets\Scripts\comboSystem.cs" />
      <Compile Include="Assets\Scripts\comboSystemClass.cs" />
      <Compile Include="Assets\Scripts\courchScript.cs" />
@@ -58,9 +62,13 @@
      <Compile Include="Assets\Scripts\enemyAttack.cs" />
      <Compile Include="Assets\Scripts\enemyScript.cs" />
      <Compile Include="Assets\Scripts\enemySpawn.cs" />
+     <Compile Include="Assets\Scripts\enterGym.cs" />
      <Compile Include="Assets\Scripts\floatingDamage.cs" />
+     <Compile Include="Assets\Scripts\hammerTimeScript.cs" />
+     <Compile Include="Assets\Scripts\hammerTimeTrigger.cs" />
      <Compile Include="Assets\Scripts\hookAttack.cs" />
      <Compile Include="Assets\Scripts\hookTrigger.cs" />
+     <Compile Include="Assets\Scripts\increaseStats.cs" />
      <Compile Include="Assets\Scripts\itemDBTest.cs" />
      <Compile Include="Assets\Scripts\jabTrigger.cs" />
      <Compile Include="Assets\Scripts\lightKick.cs" />
@@ -76,21 +84,19 @@
      <Compile Include="Assets\Scripts\upperCutTrigger.cs" />
      <Compile Include="Assets\Scripts\uppercutAttack.cs" />
      <Compile Include="Assets\Scripts\userInterface.cs" />
-     <Compile Include="Assets\afterDefeat.cs" />
-     <Compile Include="Assets\bossAttack1.cs" />
-     <Compile Include="Assets\bossAttack2.cs" />
-     <Compile Include="Assets\bossScript.cs" />
-     <Compile Include="Assets\enterGym.cs" />
-     <Compile Include="Assets\hammerTimeScript.cs" />
-     <Compile Include="Assets\hammerTimeTrigger.cs" />
-     <Compile Include="Assets\increaseStats.cs" />
      <Compile Include="Assets\scr.cs" />
      <None Include="Assets\Fonts\OFL.txt" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

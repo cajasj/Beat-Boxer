@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3e7429285346a2c4887f27b02f7f4186
-timeCreated: 1458018704
+timeCreated: 1458506000
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -64,7 +64,7 @@ TextureImporter:
         width: 82
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: bossAttack2_1
       rect:
@@ -74,7 +74,7 @@ TextureImporter:
         width: 90
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: bossAttack2_2
       rect:
@@ -84,7 +84,7 @@ TextureImporter:
         width: 104
         height: 148
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: bossAttack2_3
       rect:
@@ -94,7 +94,7 @@ TextureImporter:
         width: 102
         height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: bossAttack2_4
       rect:
@@ -104,7 +104,7 @@ TextureImporter:
         width: 90
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: bossAttack2_5
       rect:
@@ -114,7 +114,7 @@ TextureImporter:
         width: 82
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

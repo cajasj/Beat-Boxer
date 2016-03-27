@@ -15,23 +15,19 @@ Loading C:\Users\YanYan\Documents\Uni\seniorProject\BeatBoxer Prototype\beatBoxe
 Platform assembly: C:\Users\YanYan\Documents\Uni\seniorProject\BeatBoxer Prototype\beatBoxer_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\YanYan\Documents\Uni\seniorProject\BeatBoxer Prototype\beatBoxer_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\YanYan\Documents\Uni\seniorProject\BeatBoxer Prototype\beatBoxer_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.100 seconds
+- Completed reload, in  0.083 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1360x768 60Hz; virtual: 1360x768 at 0,0
 <RI> Initialized touch support.
 Platform assembly: C:\Users\YanYan\Documents\Uni\seniorProject\BeatBoxer Prototype\beatBoxer_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 13a8 -> priority: 1 
+  Thread -> id: 2248 -> priority: 1 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 8.616150 ms
+UnloadTime: 9.037408 ms
 
 Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 621.
-Total: 0.801460 ms (FindLiveObjects: 0.050425 ms CreateObjectMapping: 0.059797 ms MarkObjects: 0.662231 ms  DeleteObjects: 0.028559 ms)
-
-7.36
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+Total: 0.881785 ms (FindLiveObjects: 0.048640 ms CreateObjectMapping: 0.068722 ms MarkObjects: 0.742556 ms  DeleteObjects: 0.020081 ms)
 
 7.36
  
@@ -74,6 +70,22 @@ Total: 0.801460 ms (FindLiveObjects: 0.050425 ms CreateObjectMapping: 0.059797 m
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 7.36
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+7.36
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+success
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+success
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+success
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
@@ -157,37 +169,17 @@ Total: 0.801460 ms (FindLiveObjects: 0.050425 ms CreateObjectMapping: 0.059797 m
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-collide with zone-
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-220
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
 cartoonCity
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.486897 ms
+UnloadTime: 1.094645 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 616.
-Total: 1.187018 ms (FindLiveObjects: 0.082109 ms CreateObjectMapping: 0.061135 ms MarkObjects: 1.027708 ms  DeleteObjects: 0.015172 ms)
+Total: 0.677850 ms (FindLiveObjects: 0.052657 ms CreateObjectMapping: 0.040162 ms MarkObjects: 0.573428 ms  DeleteObjects: 0.011156 ms)
 
-7.36
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-7.36
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-7.36
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-7.36
+in the beatBoxerScript
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
@@ -223,6 +215,10 @@ Total: 1.187018 ms (FindLiveObjects: 0.082109 ms CreateObjectMapping: 0.061135 m
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
+7.36
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
 260
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
@@ -255,6 +251,10 @@ Total: 1.187018 ms (FindLiveObjects: 0.082109 ms CreateObjectMapping: 0.061135 m
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
+7.36
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
 340
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
@@ -279,6 +279,10 @@ Total: 1.187018 ms (FindLiveObjects: 0.082109 ms CreateObjectMapping: 0.061135 m
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
+7.36
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
 400
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
@@ -295,6 +299,10 @@ Total: 1.187018 ms (FindLiveObjects: 0.082109 ms CreateObjectMapping: 0.061135 m
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
+7.36
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
 440
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
@@ -303,11 +311,35 @@ Total: 1.187018 ms (FindLiveObjects: 0.082109 ms CreateObjectMapping: 0.061135 m
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
+downTown
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.202191 ms
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 618.
+Total: 0.971927 ms (FindLiveObjects: 0.064705 ms CreateObjectMapping: 0.062474 ms MarkObjects: 0.738093 ms  DeleteObjects: 0.105760 ms)
+
+in the beatBoxerScript
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
 collide with zone-
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-440
+shopUi
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.639026 ms
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 631.
+Total: 0.689006 ms (FindLiveObjects: 0.056673 ms CreateObjectMapping: 0.041054 ms MarkObjects: 0.555132 ms  DeleteObjects: 0.034807 ms)
+
+in the beatBoxerScript
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
@@ -316,38 +348,26 @@ downTown
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.506532 ms
+UnloadTime: 1.181663 ms
 
-Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 584.
-Total: 0.892941 ms (FindLiveObjects: 0.058458 ms CreateObjectMapping: 0.053103 ms MarkObjects: 0.681420 ms  DeleteObjects: 0.099066 ms)
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 618.
+Total: 0.565842 ms (FindLiveObjects: 0.045517 ms CreateObjectMapping: 0.032576 ms MarkObjects: 0.465436 ms  DeleteObjects: 0.021866 ms)
 
-collide with zone-
+in the beatBoxerScript
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-collide with zone-
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-440
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-shopUi
+shopUi 2
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.835375 ms
+UnloadTime: 0.745679 ms
 
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 631.
-Total: 0.722474 ms (FindLiveObjects: 0.060689 ms CreateObjectMapping: 0.033914 ms MarkObjects: 0.611359 ms  DeleteObjects: 0.014726 ms)
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 621.
+Total: 0.731846 ms (FindLiveObjects: 0.041501 ms CreateObjectMapping: 0.032576 ms MarkObjects: 0.618945 ms  DeleteObjects: 0.037931 ms)
 
-collide with zone-
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-218
+in the beatBoxerScript
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
@@ -356,20 +376,16 @@ downTown
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.129899 ms
+UnloadTime: 1.239229 ms
 
-Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 584.
-Total: 0.807262 ms (FindLiveObjects: 0.059797 ms CreateObjectMapping: 0.049087 ms MarkObjects: 0.667140 ms  DeleteObjects: 0.030791 ms)
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 618.
+Total: 0.556470 ms (FindLiveObjects: 0.042393 ms CreateObjectMapping: 0.033022 ms MarkObjects: 0.459635 ms  DeleteObjects: 0.020527 ms)
 
-collide with zone-
+in the beatBoxerScript
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 collide with zone-
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-218
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
@@ -377,11 +393,29 @@ shopUi
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.763083 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.757282 ms
 
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 631.
-Total: 0.898296 ms (FindLiveObjects: 0.062028 ms CreateObjectMapping: 0.041947 ms MarkObjects: 0.775578 ms  DeleteObjects: 0.017403 ms)
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 631.
+Total: 0.745233 ms (FindLiveObjects: 0.054442 ms CreateObjectMapping: 0.041054 ms MarkObjects: 0.618499 ms  DeleteObjects: 0.030344 ms)
+
+in the beatBoxerScript
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+downTown
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.140609 ms
+
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 618.
+Total: 0.746572 ms (FindLiveObjects: 0.060689 ms CreateObjectMapping: 0.043286 ms MarkObjects: 0.607789 ms  DeleteObjects: 0.033914 ms)
+
+in the beatBoxerScript
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
 in the open sub
  

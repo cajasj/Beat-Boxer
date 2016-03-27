@@ -3,8 +3,9 @@ using System.Collections;
 using System;
 
 public class BeatBoxerScript : MonoBehaviour {
-    public int currentHealth;
+   
     public int maxHealth=40;
+    public int currentHealth;
     public int currentExp;
     public int currentMoney;
     public int strength = 20;
@@ -47,18 +48,19 @@ public class BeatBoxerScript : MonoBehaviour {
         maxEnd = endurance;
         maxVit = vitality;
         flipping = false;
-        guts = maxGuts;
+
+       
         offOn = GetComponent<BoxCollider2D>();
-        currentHealth = maxHealth;
         if (Application.loadedLevel == 1) { 
-            if (PlayerPrefs.HasKey("money"))
-            {
-                    PlayerPrefs.DeleteAll();
-            }
+           PlayerPrefs.DeleteAll();
+            currentHealth = maxHealth;
+            guts = maxGuts;
         }
         else
         {
-           currentExp= PlayerPrefs.GetInt("exp");
+          
+            Debug.Log("in the beatBoxerScript");
+            currentExp= PlayerPrefs.GetInt("exp");
             currentMoney = PlayerPrefs.GetInt("money");
             strength = PlayerPrefs.GetInt("strength");
             agility = PlayerPrefs.GetInt("agility");
@@ -72,6 +74,7 @@ public class BeatBoxerScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
         ////////////////////
         ////X Y Movement///
         //////////////////  

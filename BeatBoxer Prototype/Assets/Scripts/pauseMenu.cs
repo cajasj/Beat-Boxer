@@ -7,15 +7,26 @@ public class pauseMenu : MonoBehaviour {
     public GameObject pauseCanvas;
     public GameObject panel;
     public GameObject statPanel;
+    public GameObject equipPanel;
+    public GameObject comboPanel;
+    public GameObject generalPanel;
+    public GameObject statTab;
+    public GameObject equipTab;
+    public GameObject comboTab;
+    public GameObject close;
     public bool isClicked;
     public bool statClicked;
+    public bool comboClicked;
+    public bool equipClicked;
+    public bool myStatClicked;
     public Text strengthTXT;
     public Text agilityTXT;
     public Text enduranceTXT;
     public Text vitalityTXT;
     public BeatBoxerScript beatBoxerStats;
-    // Use this for initialization
 
+    // Use this for initialization
+ 
 
     // Update is called once per frame
     void Update () {
@@ -25,8 +36,10 @@ public class pauseMenu : MonoBehaviour {
         enduranceTXT.text = "Endurance: " + beatBoxerStats.endurance;
 	    if (isPaussed)
         {
+
             pauseCanvas.SetActive(true);
             Time.timeScale = 0f;
+            
         }
         else
         {
@@ -35,7 +48,10 @@ public class pauseMenu : MonoBehaviour {
             Time.timeScale = 1f;
             isClicked = false;
             statClicked = false;
-
+            statTab.SetActive(false);
+            equipTab.SetActive(false);
+            comboTab.SetActive(false);
+            close.SetActive(false);
         }
         if (isClicked)
         {
@@ -47,11 +63,44 @@ public class pauseMenu : MonoBehaviour {
         }
         if (statClicked)
         {
-            statPanel.SetActive(true);
+            statTab.SetActive(true);
+            equipTab.SetActive(true);
+            comboTab.SetActive(true);
+            generalPanel.SetActive(true);
+            close.SetActive(true);
         }
         else
         {
+            generalPanel.SetActive(false);
+        }
+        if (myStatClicked)
+        {
+         
+            statPanel.SetActive(true);
+
+        }else
+        {
             statPanel.SetActive(false);
+        }
+        if (comboClicked)
+        {
+
+            
+            comboPanel.SetActive(true);
+        }
+        else
+        {
+            comboPanel.SetActive(false);
+        }
+        if (equipClicked)
+        {
+         
+            equipPanel.SetActive(true);
+            
+        }
+        else
+        {
+            equipPanel.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -81,8 +130,38 @@ public class pauseMenu : MonoBehaviour {
     {
         statClicked = true;
     }
+    public void statsMenutab()
+    {
+        myStatClicked = true;
+        comboPanel.SetActive(false);
+        comboClicked = false;
+        equipPanel.SetActive(false);
+        equipClicked = false;
+    }
+    public void comboMenu()
+    {
+        statPanel.SetActive(false);
+        myStatClicked = false;
+        equipPanel.SetActive(false);
+        equipClicked = false;
+        comboClicked =true;
+    }
+    public void equipMenu()
+    {
+        statPanel.SetActive(false);
+        myStatClicked = false;
+        comboPanel.SetActive(false);
+        comboClicked = false;
+        equipClicked = true;
+    }
     public void closeStatsMenu()
     {
         statClicked = false;
+        comboClicked = false;
+        equipClicked = false;
+        close.SetActive(false);
+        statTab.SetActive(false);
+        equipTab.SetActive(false);
+        comboTab.SetActive(false);
     }
 }

@@ -9,15 +9,16 @@ public class nextStage : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         exitZone = false;
-
         beatBoxerStats = beatBoxer.GetComponent<BeatBoxerScript>();
-	
+        
     }
     void Update()
     {
+        saveBeatBoxer();
         if (exitZone)
         {
-            saveBeatBoxer();
+           saveBeatBoxer();
+
             Application.LoadLevel(stageToLoad);
             Debug.Log(stageToLoad);
         }
@@ -30,12 +31,12 @@ public class nextStage : MonoBehaviour {
         if (collide.name =="Player")
         {
             exitZone = true;
-            Debug.Log("collide with zone-");
         }
     }
     void saveBeatBoxer()
     {
-        Debug.Log(beatBoxerStats.currentExp);
+
+
         PlayerPrefs.SetInt("exp", beatBoxerStats.currentExp);
         PlayerPrefs.SetInt("money", beatBoxerStats.currentMoney);
         PlayerPrefs.SetInt("strength", beatBoxerStats.strength);

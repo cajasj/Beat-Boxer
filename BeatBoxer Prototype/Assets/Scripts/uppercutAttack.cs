@@ -16,13 +16,13 @@ public class uppercutAttack : MonoBehaviour
     private comboSystemClass stopMadness;
     BeatBoxerScript beatBoxerStats;
     private Rigidbody2D myRigidBody;
-    public Collider2D hammerTimeTrigger;
+    public Collider2D upperCutTrigger;
     private bool stayoff;
     void Awake()
     {
         
         myRigidBody = GetComponent<Rigidbody2D>();
-        hammerTimeTrigger.enabled = false;
+        upperCutTrigger.enabled = false;
         beatBoxerStats = gameObject.GetComponent<BeatBoxerScript>();
         anim = gameObject.GetComponent<Animator>();
     }
@@ -93,13 +93,13 @@ public class uppercutAttack : MonoBehaviour
 
         yield return new WaitForSeconds(1.1f);
         stayoff = false;
-        hammerTimeTrigger.enabled = false;
+        upperCutTrigger.enabled = false;
     }
     IEnumerator delayAttack()
     {
         yield return new WaitForSeconds(1f);
 
-        hammerTimeTrigger.enabled = true;
+        upperCutTrigger.enabled = true;
         stayoff = true;
 
     }

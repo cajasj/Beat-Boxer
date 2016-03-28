@@ -3,14 +3,15 @@ using System.Collections;
 
 public class enogeeBlastScript : MonoBehaviour {
 
-    private float attackCoolDown = .3f;
+    private float attackCoolDown = .5f;
     private float attackTimer;
     private Animator anim;
     private float gutsUsed = 10.33f;
-    private comboSystemClass keyWumboCombo = new comboSystemClass(new string[] { "Crouch", "Vertical", "Horizontal", "Light Punch" });
+    private comboSystemClass keyWumboCombo = new comboSystemClass(new string[] { "Crouch", "Vertical", "Horizontal", "Light Punch"});
     private float comboReset;
     private bool completeWumboCombo = false;
     private bool enogeeBlast = false;
+    private bool noJab = false;
     private comboSystemClass stopMadness;
     BeatBoxerScript beatBoxerStats;
     private Rigidbody2D myRigidBody;
@@ -29,17 +30,18 @@ public class enogeeBlastScript : MonoBehaviour {
     void Update()
     {
 
-
+        
         if (keyWumboCombo.check() && !enogeeBlast)
         {
-
+            anim.SetBool("jabAttack", noJab);
             Debug.Log("success");
-            onlyAttack();
+            StartCoroutine(delayAttack());
         }
 
 
         if (enogeeBlast)
         {
+           
             SendMessageUpwards("inputFlag", true);
             animationCoolDown();
             anim.SetBool("shootBlast", enogeeBlast);
@@ -55,11 +57,11 @@ public class enogeeBlastScript : MonoBehaviour {
 
         enogeeBlast = true;
         attackTimer = attackCoolDown;
-        StartCoroutine(delayAttack());
+       
     }
     void animationCoolDown()
     {
-        myRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
+        myRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
         if (attackTimer > 0)
         {
 
@@ -73,13 +75,14 @@ public class enogeeBlastScript : MonoBehaviour {
             myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
             enogeeBlast = false;
             SendMessageUpwards("inputFlag", false);
+            noJab = true;
         }
     }
 
     IEnumerator delayAttack()
     {
 
-        yield return new WaitForSeconds(0);
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(.2f);
+        onlyAttack();
     }
 }

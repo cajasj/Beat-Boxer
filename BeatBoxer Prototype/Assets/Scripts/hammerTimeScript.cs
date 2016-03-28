@@ -13,11 +13,13 @@ public class hammerTimeScript : MonoBehaviour {
     private comboSystemClass stopMadness;
     BeatBoxerScript beatBoxerStats;
     private Rigidbody2D myRigidBody;
-    public Collider2D upperCutTrigger;
+    public Collider2D hammerTimeTrigger;
+    private bool stayoff;
+
     void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
-        upperCutTrigger.enabled = false;
+        hammerTimeTrigger.enabled = false;
         beatBoxerStats = gameObject.GetComponent<BeatBoxerScript>();
         anim = gameObject.GetComponent<Animator>();
     }
@@ -36,6 +38,7 @@ public class hammerTimeScript : MonoBehaviour {
 
             Debug.Log("success");
             onlyAttack();
+            StartCoroutine(preventFlicker());
         }
 
 
@@ -56,7 +59,11 @@ public class hammerTimeScript : MonoBehaviour {
 
         hammerTime = true;
         attackTimer = attackCoolDown;
-        upperCutTrigger.enabled = true;
+        if (stayoff == false)
+        {
+            StartCoroutine(delayAttack());
+            stayoff = true;
+        }
         StartCoroutine(delayAttack());
     }
     void animationCoolDown()
@@ -71,19 +78,26 @@ public class hammerTimeScript : MonoBehaviour {
         {
             beatBoxerStats.guts -= gutsUsed;
             //stopMadness = new comboSystemClass(false);
-            upperCutTrigger.enabled = false;
+            hammerTimeTrigger.enabled = false;
             myRigidBody.constraints = RigidbodyConstraints2D.None;
             myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
             hammerTime = false;
         }
     }
 
-    IEnumerator delayAttack()
+    IEnumerator preventFlicker()
     {
 
-        yield return new WaitForSeconds(0);
-        upperCutTrigger.enabled = true;
-        yield return new WaitForSeconds(0);
-        upperCutTrigger.enabled = false;
+        yield return new WaitForSeconds(.53f);
+        stayoff = false;
+        hammerTimeTrigger.enabled = false;
+    }
+    IEnumerator delayAttack()
+    {
+        yield return new WaitForSeconds(.5f);
+
+        hammerTimeTrigger.enabled = true;
+        stayoff = true;
+
     }
 }

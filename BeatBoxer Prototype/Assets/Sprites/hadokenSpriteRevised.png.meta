@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: ad20a7f3b5356aa49b160270ebaea8ee
+timeCreated: 1459192953
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: hadokenSpriteRevised_0
+    21300002: hadokenSpriteRevised_1
+    21300004: hadokenSpriteRevised_2
+    21300006: hadokenSpriteRevised_3
+    21300008: hadokenSpriteRevised_4
+    21300010: hadokenSpriteRevised_5
+    21300012: hadokenSpriteRevised_6
+    21300014: hadokenSpriteRevised_7
+    21300016: hadokenSpriteRevised_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: hadokenSpriteRevised_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 22
+        width: 86
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hadokenSpriteRevised_1
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 19
+        width: 83
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hadokenSpriteRevised_2
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 19
+        width: 80
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hadokenSpriteRevised_3
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 19
+        width: 96
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hadokenSpriteRevised_4
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 19
+        width: 109
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hadokenSpriteRevised_5
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 19
+        width: 109
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hadokenSpriteRevised_6
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 19
+        width: 93
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hadokenSpriteRevised_7
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 20
+        width: 80
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: hadokenSpriteRevised_8
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 19
+        width: 86
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

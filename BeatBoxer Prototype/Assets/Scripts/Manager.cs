@@ -7,7 +7,13 @@ public class Manager : MonoBehaviour
     //public GameObject menuCanvas;
     public bool quitClick;
     public bool startClicked;
-    
+    public bool controlsClicked;
+    public bool closeClicked;
+    public GameObject keyboardPanel;
+    void Start()
+    {
+        controlsClicked = false;
+    }
     void Update()
     {
         if (quitClick)
@@ -18,7 +24,15 @@ public class Manager : MonoBehaviour
         {
             startGame();
         }
-
+       if (controlsClicked)
+        {
+            keyboardPanel.SetActive(true);
+        }
+        else
+        {
+            keyboardPanel.SetActive(false);
+        }
+     
     }
     public void startGame()
     {
@@ -33,6 +47,14 @@ public class Manager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void howToPanel()
+    {
+        controlsClicked = true;
+    }
+    public void closePanel()
+    {
+        controlsClicked = false;
     }
 }
 

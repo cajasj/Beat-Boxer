@@ -17,8 +17,10 @@ public class uppercutAttack : MonoBehaviour
     BeatBoxerScript beatBoxerStats;
     private Rigidbody2D myRigidBody;
     public Collider2D hammerTimeTrigger;
+    private bool stayoff;
     void Awake()
     {
+        
         myRigidBody = GetComponent<Rigidbody2D>();
         hammerTimeTrigger.enabled = false;
         beatBoxerStats = gameObject.GetComponent<BeatBoxerScript>();
@@ -58,34 +60,47 @@ public class uppercutAttack : MonoBehaviour
     {
         
         upperCut = true;
+
         attackTimer = attackCoolDown;
-        StartCoroutine(delayAttack());
+        if (stayoff == false)
+        {
+            StartCoroutine(delayAttack());
+            stayoff = true;
+        }
+        StartCoroutine(preventFlicker());
     }
     void animationCoolDown()
     {
         myRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
         if (attackTimer > 0)
         {
-
+            
             attackTimer -= Time.deltaTime;
+            
         }
         else
         {
             beatBoxerStats.guts -= gutsUsed;
             //stopMadness = new comboSystemClass(false);
-            hammerTimeTrigger.enabled = false;
             myRigidBody.constraints = RigidbodyConstraints2D.None;
             myRigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
             upperCut = false;
         }
     }
 
+    IEnumerator preventFlicker()
+    {
+
+        yield return new WaitForSeconds(1.1f);
+        stayoff = false;
+        hammerTimeTrigger.enabled = false;
+    }
     IEnumerator delayAttack()
     {
-       
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
+
         hammerTimeTrigger.enabled = true;
-        yield return new WaitForSeconds(0);
-        hammerTimeTrigger.enabled = false;
+        stayoff = true;
+
     }
 }

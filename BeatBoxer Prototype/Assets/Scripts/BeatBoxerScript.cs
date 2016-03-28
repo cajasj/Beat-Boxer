@@ -26,7 +26,7 @@ public class BeatBoxerScript : MonoBehaviour {
     private BoxCollider2D offOn;
     public Vector3 playerPos;
     private Rigidbody2D myRigidBody;
-    private Rigidbody2D myRigidBody2;
+   
     private bool regenGutsOn=true;
     private bool rollOn;
     public float x;
@@ -40,6 +40,13 @@ public class BeatBoxerScript : MonoBehaviour {
     public shop[] shoppingList;
     public GameObject enemy;
     public afterDefeat beaten;
+    public int combo2;
+    public int combo3;
+    public int mixtape;
+    public hammerTimeScript hammerTime;
+    public hammerTimeTrigger hammerTimeTrig;
+    //public enogeeBlastScript enogeeBlast;
+    //public enogeeBlastTrigger enogeeBlastTrig;
     // Use this for initialization
     void Start () {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -48,7 +55,8 @@ public class BeatBoxerScript : MonoBehaviour {
         maxEnd = endurance;
         maxVit = vitality;
         flipping = false;
-
+        hammerTime = hammerTime.GetComponent<hammerTimeScript>();
+       
        
         offOn = GetComponent<BoxCollider2D>();
         if (Application.loadedLevel == 1) { 
@@ -68,13 +76,16 @@ public class BeatBoxerScript : MonoBehaviour {
             vitality = PlayerPrefs.GetInt("vitality");
             currentHealth = PlayerPrefs.GetInt("health");
             guts = PlayerPrefs.GetInt("guts");
+            combo2 = PlayerPrefs.GetInt("combo2");
+            combo3 = PlayerPrefs.GetInt("combo3");
+            mixtape = PlayerPrefs.GetInt("mixtape");
         }
         
     }
 
     // Update is called once per frame
     void Update () {
-
+        checkPurchase();
         ////////////////////
         ////X Y Movement///
         //////////////////  
@@ -279,5 +290,25 @@ public class BeatBoxerScript : MonoBehaviour {
 
 
     }
-    
+    public void checkPurchase()
+    {
+        if (combo2==1)
+        {
+            hammerTime.enabled = true;
+            hammerTimeTrig.enabled = true;
+        }
+        else
+        {
+            hammerTimeTrig.enabled = false;
+            hammerTime.enabled = false;
+        }
+        if (combo3 == 1)
+        {
+
+        }
+        if (mixtape == 1)
+        {
+
+        }
+    }
 }

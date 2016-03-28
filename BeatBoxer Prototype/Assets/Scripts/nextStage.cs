@@ -17,7 +17,7 @@ public class nextStage : MonoBehaviour {
         saveBeatBoxer();
         if (exitZone)
         {
-           saveBeatBoxer();
+           //saveBeatBoxer();
 
             Application.LoadLevel(stageToLoad);
             Debug.Log(stageToLoad);
@@ -45,5 +45,8 @@ public class nextStage : MonoBehaviour {
         PlayerPrefs.SetInt("vitality", beatBoxerStats.vitality);
         PlayerPrefs.SetInt("health", beatBoxerStats.currentHealth);
         PlayerPrefs.SetInt("guts", (int)beatBoxerStats.guts);
+        PlayerPrefs.SetInt("combo2", beatBoxerStats.combo2);
+        PlayerPrefs.SetInt("combo3",beatBoxerStats.combo3);
+        PlayerPrefs.SetInt("mixtape", beatBoxerStats.mixtape);
     }
 }

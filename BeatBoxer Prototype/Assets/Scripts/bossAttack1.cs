@@ -10,11 +10,8 @@ public class bossAttack1 : MonoBehaviour {
     private float attackTimer = 0;
     //private bool noTrigger;
     public GameObject beatBoxer;
-    public GameObject bossAttackSwitch;
     public Collider2D smashTrigger;
     private Rigidbody2D myRigidBody;
-    public Transform bossPos;
-    public Transform boxerPos;
 
 
     void Awake()
@@ -23,18 +20,17 @@ public class bossAttack1 : MonoBehaviour {
         myRigidBody = GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         smashTrigger.enabled = false;
-        boxerPos = beatBoxer.transform;
     }
     // Use this for initialization
     void Start()
     {
-
+        Physics2D.IgnoreLayerCollision(13, 14, true);
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        
         if (touch && !smash)
         {
             smash = true;

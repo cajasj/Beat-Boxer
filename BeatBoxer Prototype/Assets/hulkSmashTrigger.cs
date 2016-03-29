@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class swipeTrigger : MonoBehaviour {
-    private int  swipeDamage=5;
+public class hulkSmashTrigger : MonoBehaviour {
+    public int hulkSmashDamage = 30;
 	// Use this for initialization
 	void Start () {
-        Physics2D.IgnoreLayerCollision(13, 14, true);
-
-    }
-
-    // Update is called once per frame
-    void Update () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
 	
 	}
     void OnTriggerEnter2D(Collider2D col)
@@ -19,7 +18,7 @@ public class swipeTrigger : MonoBehaviour {
         if (col.isTrigger == false && col.CompareTag("Player"))
         {
             col.isTrigger = true;
-            col.SendMessageUpwards("beatBoxerHits",swipeDamage);
+            col.SendMessageUpwards("beatBoxerHits", hulkSmashDamage);
         }
         col.isTrigger = false;
     }

@@ -86,9 +86,11 @@
      <Compile Include="Assets\Scripts\userInterface.cs" />
      <Compile Include="Assets\blastScript.cs" />
      <Compile Include="Assets\enogeeBlastScript.cs" />
+     <Compile Include="Assets\hulkSmashTrigger.cs" />
      <Compile Include="Assets\itemShop.cs" />
      <Compile Include="Assets\moveBlast.cs" />
      <Compile Include="Assets\scr.cs" />
+     <Compile Include="Assets\smashTrigger.cs" />
      <Compile Include="Assets\statsComboEquip.cs" />
      <None Include="Assets\Fonts\OFL.txt" />
  <Reference Include="UnityEngine.UI">

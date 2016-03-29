@@ -3,8 +3,8 @@ using System.Collections;
 using System;
 
 public class BeatBoxerScript : MonoBehaviour {
-   
-    public int maxHealth=40;
+
+    public int maxHealth = 40;
     public int currentHealth;
     public int currentExp;
     public int currentMoney;
@@ -23,11 +23,14 @@ public class BeatBoxerScript : MonoBehaviour {
     bool facingRight = true;
     public bool stop = true;
     public bool rollInitiate = false;
-    private BoxCollider2D offOn;
+   // public BoxCollider2D offOn;
     public Vector3 playerPos;
-    private Rigidbody2D myRigidBody;
-   
-    private bool regenGutsOn=true;
+    public Rigidbody2D myRigidBody;
+    public float luda;
+    public float cris;
+    private float knockbackDuration = 1.3f;
+    private float knockbackTimer = 0;
+    private bool regenGutsOn = true;
     private bool rollOn;
     public float x;
     public float y;
@@ -35,7 +38,7 @@ public class BeatBoxerScript : MonoBehaviour {
     private int gutsRoll = 10;
     private float rollTimer;
     private float rollCooldown = .5f;
-    Animator beatBoxerMovement;
+    public Animator beatBoxerMovement;
     public bool flipping;
     public shop[] shoppingList;
     public GameObject enemy;
@@ -47,10 +50,15 @@ public class BeatBoxerScript : MonoBehaviour {
     public hammerTimeTrigger hammerTimeTrig;
     public enogeeBlastScript enogeeBlast;
     public blastScript enogeeAttack;
+    public bossScript enemyObject;
+    public GameObject boss;
+    private bool knock = false;
     //public enogeeBlastScript enogeeBlast;
     //public enogeeBlastTrigger enogeeBlastTrig;
     // Use this for initialization
-    void Start () {
+    void Start() {
+        boss = GameObject.Find("Boss");
+        enemyObject = boss.GetComponent<bossScript>();
         myRigidBody = GetComponent<Rigidbody2D>();
         beatBoxerMovement = GetComponent<Animator>();
         enemy = GameObject.Find("enemyPlaceHolder");
@@ -60,17 +68,16 @@ public class BeatBoxerScript : MonoBehaviour {
         hammerTime = hammerTime.GetComponent<hammerTimeScript>();
         enogeeBlast = enogeeBlast.GetComponent<enogeeBlastScript>();
         enogeeAttack = enogeeAttack.GetComponent<blastScript>();
-        offOn = GetComponent<BoxCollider2D>();
-        if (Application.loadedLevel == 1) { 
-           PlayerPrefs.DeleteAll();
+       // offOn = GetComponent<BoxCollider2D>();
+        if (Application.loadedLevel == 1) {
+            PlayerPrefs.DeleteAll();
             currentHealth = maxHealth;
             guts = maxGuts;
         }
         else
         {
-          
-            Debug.Log("in the beatBoxerScript");
-            currentExp= PlayerPrefs.GetInt("exp");
+            
+            currentExp = PlayerPrefs.GetInt("exp");
             currentMoney = PlayerPrefs.GetInt("money");
             strength = PlayerPrefs.GetInt("strength");
             agility = PlayerPrefs.GetInt("agility");
@@ -82,15 +89,18 @@ public class BeatBoxerScript : MonoBehaviour {
             combo3 = PlayerPrefs.GetInt("combo3");
             mixtape = PlayerPrefs.GetInt("mixtape");
         }
-        
+
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update() {
         checkPurchase();
         ////////////////////
         ////X Y Movement///
         //////////////////  
+
+
+
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
         myRigidBody.velocity = new Vector3(x * maxSpeed, y * maxSpeed, myRigidBody.velocity.y);
@@ -109,65 +119,65 @@ public class BeatBoxerScript : MonoBehaviour {
             myRigidBody.velocity = new Vector3(x * maxSpeed, y * maxSpeed, myRigidBody.velocity.y);
         }
         if (Input.GetButton("Horizontal"))
-            {
-                beatBoxerMovement.SetFloat("walking", Mathf.Abs(x));
-            }
-            else
-            {
-                beatBoxerMovement.SetFloat("walking", Mathf.Abs(0));
-
-            }
-
-            if (Input.GetButton("Vertical"))
-            {
-
-                beatBoxerMovement.SetFloat("walking", Mathf.Abs(y));
-            }
-        if (guts<=maxGuts&& regenGutsOn)
         {
-            regenAmount = ((float)endurance+10) / 10;
-                guts += regenAmount * Time.deltaTime;
+            beatBoxerMovement.SetFloat("walking", Mathf.Abs(x));
+        }
+        else
+        {
+            beatBoxerMovement.SetFloat("walking", Mathf.Abs(0));
+
+        }
+
+        if (Input.GetButton("Vertical"))
+        {
+
+            beatBoxerMovement.SetFloat("walking", Mathf.Abs(y));
+        }
+        if (guts <= maxGuts && regenGutsOn)
+        {
+            regenAmount = ((float)endurance + 10) / 10;
+            guts += regenAmount * Time.deltaTime;
             if (guts > maxGuts)
             {
                 guts = maxGuts;
-            
+
             }
         }
-        
+
         if (Input.GetButton("Crouch")) {
             beatBoxerMovement.SetFloat("walking", Mathf.Abs(0));
             beatBoxerMovement.SetBool("crouch", true);
             stop = true;
             rollOn = false;
             SendMessageUpwards("noInteruption", stop);
-           
+
             //myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
             if (Input.GetButton("Horizontal") && !rollInitiate)
 
             {
-                
+
                 onlyRoll();
             }
-            if (rollInitiate && guts>=gutsRoll)
+            if (rollInitiate && guts >= gutsRoll)
             {
                 rollOn = true;
                 if (rollOn)
                 {
                     beatBoxerMovement.SetBool("rolling", true);
 
-                    Physics2D.IgnoreLayerCollision(11, 12,true);
-                    
-                    
+                    Physics2D.IgnoreLayerCollision(11, 12, true);
+
+
                     StartCoroutine("staminaDrain");
 
                     // myRigidBody.AddForce(new Vector3(10, 0, 0), ForceMode2D.Impulse);
 
 
                 }
-            }else
+            } else
             {
 
-                
+
                 myRigidBody.velocity = new Vector3(0 * maxSpeed, 0 * maxSpeed, myRigidBody.velocity.y);
                 beatBoxerMovement.SetBool("rolling", false);
             }
@@ -175,7 +185,7 @@ public class BeatBoxerScript : MonoBehaviour {
         }
         else
         {
-            Physics2D.IgnoreLayerCollision(11, 12, false);  
+            Physics2D.IgnoreLayerCollision(11, 12, false);
             regenGutsOn = true;
             //rollOn = false;
             rollInitiate = false;
@@ -186,19 +196,19 @@ public class BeatBoxerScript : MonoBehaviour {
             SendMessageUpwards("noInteruption", stop);
         }
 
-        if (vitality>maxVit)
+        if (vitality > maxVit)
         {
             newMaxHealth();
         }
-        if (endurance> maxEnd)
+        if (endurance > maxEnd)
         {
             newMaxGuts();
         }
-       
+
         /////////////////
         ////Running/////
         ///////////////
-        if (Input.GetKey( KeyCode.LeftShift)&&(Input.GetButton("Horizontal")|| Input.GetButton("Vertical")))
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetButton("Horizontal") || Input.GetButton("Vertical")))
         {
             beatBoxerMovement.SetBool("running", true);
             maxSpeed = agility;
@@ -208,22 +218,22 @@ public class BeatBoxerScript : MonoBehaviour {
             beatBoxerMovement.SetBool("running", false);
             maxSpeed = 10f;
         }
-       ////////////////////
-       /////Flip Sprite///
-       //////////////////
-        if (x >0 && !facingRight)
+        ////////////////////
+        /////Flip Sprite///
+        //////////////////
+        if (x > 0 && !facingRight)
         {
             flipping = false;
             Flip();
-            
+
         }
-        else if(x <0 && facingRight)
+        else if (x < 0 && facingRight)
         {
             flipping = true;
             Flip();
-            
+
         }
-	}
+    }
     void onlyRoll()
     {
         rollInitiate = true;
@@ -240,7 +250,7 @@ public class BeatBoxerScript : MonoBehaviour {
         {
 
             rollInitiate = false;
-            
+
         }
     }
     void Flip()
@@ -249,9 +259,9 @@ public class BeatBoxerScript : MonoBehaviour {
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-        
+
     }
-   public void awardEXP(int enemyEXP)
+    public void awardEXP(int enemyEXP)
     {
         currentExp += enemyEXP;
         Debug.Log(currentExp);
@@ -264,7 +274,7 @@ public class BeatBoxerScript : MonoBehaviour {
     public void beatBoxerHits(int getHit)
     {
         currentHealth -= getHit;
-       
+
     }
     public void newMaxGuts()
     {
@@ -278,6 +288,31 @@ public class BeatBoxerScript : MonoBehaviour {
         maxVit = vitality;
         currentHealth = maxHealth;
     }
+    //public void beatBoxerKnockBack(float ludacrisGetBack)
+    //{
+    //    luda = ludacrisGetBack;
+    //    cris = 0f;
+    //    knockBackSetting();
+    //    if (enemyObject.flipper == false)
+    //    {
+    //        myRigidBody.AddForce(new Vector3(-124, cris, 0), ForceMode2D.Impulse);
+    //        Debug.Log("in the luada code");
+
+    //    }
+    //    else
+    //    {
+    //        myRigidBody.AddForce(new Vector3(-124, cris, 0), ForceMode2D.Impulse);
+    //    }
+
+    //}
+    //public void knockBackSetting()
+    //{
+    //    offOn.enabled = false;
+    //    knockbackTimer = knockbackDuration;
+    //    myRigidBody.isKinematic = false;
+    //    knock = true;
+   
+    //}
     IEnumerator staminaDrain()
     {
         if (rollDrain) {

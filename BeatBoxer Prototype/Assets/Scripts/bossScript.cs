@@ -6,18 +6,19 @@ public class bossScript : MonoBehaviour {
     
 
     public int currHealth;
-    public int maxHealth;
+    public int maxHealth=150;
     private Rigidbody2D enemeyRigidBody;
     public BeatBoxerScript enemyObject;
     public GameObject beatBoxer;
     public Animator anim;
     float speed;
     private float Range = 50f;
- 
+    public float luda;
+    public float cris;
     public Transform enemyMoving;
     public Transform target;
     public BoxCollider2D offOn;
-    bool flipper = false;
+    public bool flipper = false;
     public bool attack;
     public bool attack2;
     public bool getHit;
@@ -27,6 +28,7 @@ public class bossScript : MonoBehaviour {
     void Start()
     {
         Flip();
+        currHealth = maxHealth;
         enemeyRigidBody = GetComponent<Rigidbody2D>();
         enemeyRigidBody.isKinematic = true;
         currHealth = maxHealth;
@@ -64,44 +66,46 @@ public class bossScript : MonoBehaviour {
 
         if (transform.position.x > enemyMoving.position.x && flipper == true)
         {
-            if (!attack||!attack2)
+            if (!stopit)
             {
                 Flip();
                 flipper = false;
             }
         }
         //sDebug.Log("attack is " + attack);
-        if (Vector3.Distance(enemyMoving.position, transform.position) < Range && Vector3.Distance(enemyMoving.position, transform.position) > 2.3)
+        if (Vector3.Distance(enemyMoving.position, transform.position) < Range)
         {
             if (currHealth > 0 && !stopit)
             {
                 move();
             }
         }
-        if (Vector3.Distance(enemyMoving.position, transform.position) <= 2.3 && Vector3.Distance(enemyMoving.position, transform.position) >= 2.1)
+        if (Vector3.Distance(enemyMoving.position, transform.position) <= 2.3 && currHealth <=maxHealth/2)
         {
+            
             SendMessageUpwards("upPersonal", false);
             attack = true;
             SendMessageUpwards("touchBoss", attack);
-            Debug.Log("up close");
 
         } else
         {
+            
             attack = false;
             SendMessageUpwards("touchBoss", attack);
         }
-        if (Vector3.Distance(enemyMoving.position, transform.position) <= 2.1)
+        if (Vector3.Distance(enemyMoving.position, transform.position) <= 2.3 && currHealth > maxHealth/ 2)
         {
-            attack2 = true;
-            Debug.Log(Vector3.Distance(enemyMoving.position, transform.position));
-            SendMessageUpwards("upPersonal", attack2);
-            Debug.Log("up personal");
+            
+            attack = true;
+
+            SendMessageUpwards("upPersonal", attack);
 
         }
         else
         {
-            attack2 = false;
-            SendMessageUpwards("upPersonal", attack2);
+            
+            attack = false;
+            SendMessageUpwards("upPersonal", attack);
         }
     }
 
@@ -124,7 +128,6 @@ public class bossScript : MonoBehaviour {
 
         currHealth -= damage;
         getHit = true;
-        SendMessageUpwards("weHit", false);
     }
 
     
@@ -156,6 +159,21 @@ public class bossScript : MonoBehaviour {
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+
+    }
+    public void knockMeBack(float ludacrisGetBack)
+    {
+
+
+    }
+    public void knockMeDown(float ludacrisGetBack)
+    {
+   
+
+    }
+    public void knockMeUp(float ludacrisGetBack)
+    {
+       
 
     }
 }

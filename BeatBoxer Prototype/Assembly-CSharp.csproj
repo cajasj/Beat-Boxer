@@ -86,6 +86,7 @@
      <Compile Include="Assets\Scripts\userInterface.cs" />
      <Compile Include="Assets\blastScript.cs" />
      <Compile Include="Assets\enogeeBlastScript.cs" />
+     <Compile Include="Assets\healthPackScript.cs" />
      <Compile Include="Assets\hulkSmashTrigger.cs" />
      <Compile Include="Assets\itemShop.cs" />
      <Compile Include="Assets\moveBlast.cs" />

@@ -20,7 +20,7 @@ public class BeatBoxerScript : MonoBehaviour {
     public float regenAmount;
     private int force = 10;
     public float maxSpeed = 10f;
-    bool facingRight = true;
+    public bool facingRight;
     public bool stop = true;
     public bool rollInitiate = false;
    // public BoxCollider2D offOn;
@@ -51,14 +51,14 @@ public class BeatBoxerScript : MonoBehaviour {
     public enogeeBlastScript enogeeBlast;
     public blastScript enogeeAttack;
     public bossScript enemyObject;
-    public GameObject boss;
+    //public GameObject boss;
     private bool knock = false;
     //public enogeeBlastScript enogeeBlast;
     //public enogeeBlastTrigger enogeeBlastTrig;
     // Use this for initialization
     void Start() {
-        boss = GameObject.Find("Boss");
-        enemyObject = boss.GetComponent<bossScript>();
+        //boss = GameObject.Find("Boss");
+        enemyObject = GetComponent<bossScript>();
         myRigidBody = GetComponent<Rigidbody2D>();
         beatBoxerMovement = GetComponent<Animator>();
         enemy = GameObject.Find("enemyPlaceHolder");
@@ -221,13 +221,13 @@ public class BeatBoxerScript : MonoBehaviour {
         ////////////////////
         /////Flip Sprite///
         //////////////////
-        if (x > 0 && !facingRight)
+        if (x > 0 && facingRight)
         {
             flipping = false;
             Flip();
 
         }
-        else if (x < 0 && facingRight)
+        else if (x < 0 && !facingRight)
         {
             flipping = true;
             Flip();
@@ -255,6 +255,8 @@ public class BeatBoxerScript : MonoBehaviour {
     }
     void Flip()
     {
+
+
         facingRight = !facingRight;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;

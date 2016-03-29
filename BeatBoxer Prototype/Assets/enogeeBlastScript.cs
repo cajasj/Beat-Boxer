@@ -10,8 +10,9 @@ public class enogeeBlastScript : MonoBehaviour {
     private comboSystemClass keyWumboCombo = new comboSystemClass(new string[] { "Crouch", "Vertical", "Horizontal", "Light Punch"});
     private float comboReset;
     private bool completeWumboCombo = false;
-    private bool enogeeBlast = false;
+    public bool enogeeBlast = false;
     private bool noJab = false;
+    public bool beatFlip;
     private comboSystemClass stopMadness;
     BeatBoxerScript beatBoxerStats;
     private Rigidbody2D myRigidBody;
@@ -33,9 +34,10 @@ public class enogeeBlastScript : MonoBehaviour {
         
         if (keyWumboCombo.check() && !enogeeBlast)
         {
-            anim.SetBool("jabAttack", noJab);
-            Debug.Log("success");
+
+            //anim.SetBool("jabAttack", noJab);
             StartCoroutine(delayAttack());
+           
         }
 
 

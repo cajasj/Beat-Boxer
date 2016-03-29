@@ -23,6 +23,10 @@ public class pauseMenu : MonoBehaviour {
     public Text agilityTXT;
     public Text enduranceTXT;
     public Text vitalityTXT;
+    public Text comboName2;
+    public Text comboInput2;
+    public Text comboName3;
+    public Text comboInput3;
     public BeatBoxerScript beatBoxerStats;
 
     // Use this for initialization
@@ -34,7 +38,17 @@ public class pauseMenu : MonoBehaviour {
         agilityTXT.text = "Agility: " + beatBoxerStats.agility;
         vitalityTXT.text = "Vitality: " + beatBoxerStats.vitality;
         enduranceTXT.text = "Endurance: " + beatBoxerStats.endurance;
-	    if (isPaussed)
+        if (beatBoxerStats.combo2==1)
+        {
+            comboName2.text = "Hammer Time";
+            comboInput2.text = "Left/Right, Right/Left, Crouch, I";
+        }
+        if (beatBoxerStats.combo3 == 1)
+        {
+            comboName3.text = "Enogee Blast";
+            comboInput3.text = "Down, Right/Left, Crouch, J";
+        }
+        if (isPaussed)
         {
 
             pauseCanvas.SetActive(true);

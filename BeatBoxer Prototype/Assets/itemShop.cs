@@ -31,10 +31,11 @@ public class itemShop : MonoBehaviour
                 beatBoxer.combo2 = 1;
             }
         }
-        if (beatBoxer.currentMoney > combo2Cost) { 
+        if (beatBoxer.currentMoney > combo3Cost) {
+            spending.spend(true);
             if (combo3Clicked && beatBoxer.combo3==0)
             {
-                spending.spend(true);
+                
                 beatBoxer.combo3 = 1;
                 beatBoxer.currentMoney -= combo3Cost;
             }

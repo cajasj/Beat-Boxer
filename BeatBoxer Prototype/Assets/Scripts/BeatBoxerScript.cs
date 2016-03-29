@@ -45,6 +45,8 @@ public class BeatBoxerScript : MonoBehaviour {
     public int mixtape;
     public hammerTimeScript hammerTime;
     public hammerTimeTrigger hammerTimeTrig;
+    public enogeeBlastScript enogeeBlast;
+    public blastScript enogeeAttack;
     //public enogeeBlastScript enogeeBlast;
     //public enogeeBlastTrigger enogeeBlastTrig;
     // Use this for initialization
@@ -56,8 +58,8 @@ public class BeatBoxerScript : MonoBehaviour {
         maxVit = vitality;
         flipping = false;
         hammerTime = hammerTime.GetComponent<hammerTimeScript>();
-       
-       
+        enogeeBlast = enogeeBlast.GetComponent<enogeeBlastScript>();
+        enogeeAttack = enogeeAttack.GetComponent<blastScript>();
         offOn = GetComponent<BoxCollider2D>();
         if (Application.loadedLevel == 1) { 
            PlayerPrefs.DeleteAll();
@@ -304,7 +306,13 @@ public class BeatBoxerScript : MonoBehaviour {
         }
         if (combo3 == 1)
         {
-
+            enogeeBlast.enabled = true;
+            enogeeAttack.enabled = true;
+        }
+        else
+        {
+            enogeeBlast.enabled = false;
+            enogeeAttack.enabled = false;
         }
         if (mixtape == 1)
         {

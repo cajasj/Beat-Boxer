@@ -43,7 +43,7 @@ public class enogeeBlastScript : MonoBehaviour {
 
         if (enogeeBlast)
         {
-           
+            
             SendMessageUpwards("inputFlag", true);
             animationCoolDown();
             anim.SetBool("shootBlast", enogeeBlast);

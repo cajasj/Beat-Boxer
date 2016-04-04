@@ -5,12 +5,12 @@ public class nextStage : MonoBehaviour {
     public string stageToLoad;
     private bool exitZone;
     private BeatBoxerScript beatBoxerStats;
+    
     public GameObject beatBoxer;
 	// Use this for initialization
 	void Start () {
         exitZone = false;
         beatBoxerStats = beatBoxer.GetComponent<BeatBoxerScript>();
-        
     }
     void Update()
     {
@@ -48,5 +48,7 @@ public class nextStage : MonoBehaviour {
         PlayerPrefs.SetInt("combo2", beatBoxerStats.combo2);
         PlayerPrefs.SetInt("combo3",beatBoxerStats.combo3);
         PlayerPrefs.SetInt("mixtape", beatBoxerStats.mixtape);
+        PlayerPrefs.SetInt("mixtapeOn", beatBoxerStats.mixtapeOn);
+       
     }
 }

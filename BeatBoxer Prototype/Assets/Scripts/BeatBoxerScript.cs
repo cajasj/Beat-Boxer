@@ -23,7 +23,9 @@ public class BeatBoxerScript : MonoBehaviour {
     public bool facingRight;
     public bool stop = true;
     public bool rollInitiate = false;
-   // public BoxCollider2D offOn;
+    public int mixtapeOn;
+    public bool mixtapeBool;
+    // public BoxCollider2D offOn;
     public Vector3 playerPos;
     public Rigidbody2D myRigidBody;
     public float luda;
@@ -56,6 +58,9 @@ public class BeatBoxerScript : MonoBehaviour {
     //public enogeeBlastScript enogeeBlast;
     //public enogeeBlastTrigger enogeeBlastTrig;
     // Use this for initialization
+    void Awake()
+    {
+    }
     void Start() {
         //boss = GameObject.Find("Boss");
         enemyObject = GetComponent<bossScript>();
@@ -88,6 +93,7 @@ public class BeatBoxerScript : MonoBehaviour {
             combo2 = PlayerPrefs.GetInt("combo2");
             combo3 = PlayerPrefs.GetInt("combo3");
             mixtape = PlayerPrefs.GetInt("mixtape");
+            mixtapeOn = PlayerPrefs.GetInt("mixtapeOn");
         }
 
     }
@@ -99,7 +105,7 @@ public class BeatBoxerScript : MonoBehaviour {
         ////X Y Movement///
         //////////////////  
 
-
+        //Debug.Log(mixtapeOn);
 
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
@@ -353,7 +359,16 @@ public class BeatBoxerScript : MonoBehaviour {
         }
         if (mixtape == 1)
         {
+            if (mixtapeOn==1)
+            {
 
+                mixtapeBool = true;
+            }
+            else
+            {
+                mixtapeBool = false;
+            }
         }
+        
     }
 }

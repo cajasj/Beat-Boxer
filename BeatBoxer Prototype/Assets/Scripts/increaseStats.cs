@@ -13,9 +13,11 @@ public class increaseStats : MonoBehaviour {
     public Text expCost;
     public int endurance;
     public int vitality;
-    private int cost=5;
+    public int cost=5;
     void Start() {
         Description.text = "Description";
+        
+        cost = PlayerPrefs.GetInt("expCost");
     }
 
 
@@ -29,7 +31,8 @@ public class increaseStats : MonoBehaviour {
             {
                 beatBoxer.strength += 1;
                 beatBoxer.currentExp -= cost;
-                cost = cost+(cost/2);
+                cost = cost*2;
+                
             }
             strengthClicked = false;
 
@@ -54,6 +57,7 @@ public class increaseStats : MonoBehaviour {
                 cost = cost * 2;
             }
             vitalityClicked = false;
+            PlayerPrefs.SetInt("expCost", cost);
         }
         else
         {

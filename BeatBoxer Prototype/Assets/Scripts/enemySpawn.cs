@@ -5,7 +5,7 @@ public class enemySpawn : MonoBehaviour {
     public GameObject enemy ;
 
 // Variable to know how fast we should create new enemies
-public float  spawnTime = 2f;
+     float  spawnTime = 1f;
     public float spawnCount = 0;
     public Renderer rend;
     void Start()

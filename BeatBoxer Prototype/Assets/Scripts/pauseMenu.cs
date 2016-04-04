@@ -27,6 +27,8 @@ public class pauseMenu : MonoBehaviour {
     public Text comboInput2;
     public Text comboName3;
     public Text comboInput3;
+    public Text mixTapeName;
+    public Text mixTapeDescription;
     public BeatBoxerScript beatBoxerStats;
 
     // Use this for initialization
@@ -47,6 +49,11 @@ public class pauseMenu : MonoBehaviour {
         {
             comboName3.text = "Enogee Blast";
             comboInput3.text = "Down, Right/Left, Crouch, J";
+        }
+        if (beatBoxerStats.mixtape == 1)
+        {
+            mixTapeName.text = "  Mixtape Messiah 4";
+            mixTapeDescription.text = "    Your enogee blast is straight fire fam";
         }
         if (isPaussed)
         {
@@ -87,6 +94,7 @@ public class pauseMenu : MonoBehaviour {
         {
             generalPanel.SetActive(false);
         }
+   
         if (myStatClicked)
         {
          
@@ -177,5 +185,21 @@ public class pauseMenu : MonoBehaviour {
         statTab.SetActive(false);
         equipTab.SetActive(false);
         comboTab.SetActive(false);
+    }
+    public void mixTapeClicked()
+    {
+        beatBoxerStats.mixtapeBool = !beatBoxerStats.mixtapeBool;
+        if (beatBoxerStats.mixtapeBool == true)
+        {
+            PlayerPrefs.SetInt("mixtapeOn", 1);
+            beatBoxerStats.mixtapeOn = 1;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("mixtapeOn", 0);
+            beatBoxerStats.mixtapeOn = 0;
+        }
+        Debug.Log(beatBoxerStats.mixtapeBool);
+        
     }
 }

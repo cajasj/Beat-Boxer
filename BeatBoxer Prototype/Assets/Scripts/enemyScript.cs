@@ -14,7 +14,7 @@ public class enemyScript : MonoBehaviour {
     float speed;
     public int enemyEXP;
     public int enemyMoney=10;
-    private float Range = 15f;
+    private float Range = 400f;
     public float luda;
     public float cris;
     public Transform enemyMoving;
@@ -31,7 +31,7 @@ public class enemyScript : MonoBehaviour {
         currHealth = maxHealth;
         beatBoxer = GameObject.Find("Player");
         enemyObject = beatBoxer.GetComponent<BeatBoxerScript>();
-        speed = 3f;
+        speed = Random.Range(1f,4f);
         enemyMoving = beatBoxer.transform;
         offOn = GetComponent<BoxCollider2D>();
     }

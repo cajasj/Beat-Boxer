@@ -8,6 +8,7 @@ public class moveBlast : MonoBehaviour {
     public BeatBoxerScript beatFlip;
     public GameObject beatBoxer;
     public blastScript direction;
+    private Animator anim;
     //Animator movement;
     // Use this for initialization
     void Awake()
@@ -17,7 +18,7 @@ public class moveBlast : MonoBehaviour {
         beatFlip = beatBoxer.GetComponent<BeatBoxerScript>();
         direction = beatBoxer.GetComponent<blastScript>();
         myRigidbody = GetComponent<Rigidbody2D>();
-        
+        anim = GetComponent<Animator>();
         if (direction.firingBlast == true)
         {
             if (beatFlip.facingRight == false)
@@ -34,7 +35,9 @@ public class moveBlast : MonoBehaviour {
                 theScale.x *= -1;
                 transform.localScale = theScale;
             }
+
         }
+   
     }
     void Start () {
         beatFlip.myRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -43,10 +46,19 @@ public class moveBlast : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-     
-      
+
+        if (beatFlip.mixtapeBool)
+        {
+            anim.SetBool("mixTapeSwitch", true);
+            blastDamage = 2;
+        }
+        else
+        {
+            anim.SetBool("mixTapeSwitch", false);
+
+        }
         myRigidbody.velocity = new Vector2(speed, myRigidbody.velocity.y);
-        if (transform.position.x > 16 || transform.position.x <-14)
+        if (transform.position.x > 14 || transform.position.x <-14)
         {
             Destroy(gameObject);
         }

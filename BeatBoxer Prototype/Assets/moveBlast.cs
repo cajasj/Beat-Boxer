@@ -8,29 +8,42 @@ public class moveBlast : MonoBehaviour {
     public BeatBoxerScript beatFlip;
     public GameObject beatBoxer;
     public blastScript direction;
-    
     //Animator movement;
     // Use this for initialization
-    void Start () {
+    void Awake()
+    {
+        speed = 10f;
         beatBoxer = GameObject.Find("Player");
         beatFlip = beatBoxer.GetComponent<BeatBoxerScript>();
         direction = beatBoxer.GetComponent<blastScript>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        
+        if (direction.firingBlast == true)
+        {
+            if (beatFlip.facingRight == false)
+            {
+                speed *= 1;
+                //Debug.Log(speed);
+
+            }
+            if (beatFlip.facingRight == true)
+            {
+                speed *= -1;
+                //Debug.Log(speed);
+                Vector3 theScale = transform.localScale;
+                theScale.x *= -1;
+                transform.localScale = theScale;
+            }
+        }
+    }
+    void Start () {
+        beatFlip.myRigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
         //movement = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-       if (direction.firingBlast == true) { 
-            if (beatFlip.facingRight==false)
-            {
-                speed = 8f;
-            }
-            if(beatFlip.facingRight==true)
-            {
-                speed = -10f;
-            }
-        }
+     
       
         myRigidbody.velocity = new Vector2(speed, myRigidbody.velocity.y);
         if (transform.position.x > 16 || transform.position.x <-14)
@@ -50,6 +63,6 @@ public class moveBlast : MonoBehaviour {
         }
        
     }
-  
+
   
 }

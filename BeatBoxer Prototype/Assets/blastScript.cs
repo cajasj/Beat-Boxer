@@ -8,9 +8,11 @@ public class blastScript : MonoBehaviour {
     public GameObject beatBoxerBlast;
     public GameObject clonedBlast;
     public float blastDamage = 1;
+    public BeatBoxerScript beatBoxerLock;
     // Use this for initialization
     void awake () {
-            }
+       
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,8 +20,9 @@ public class blastScript : MonoBehaviour {
         {
 
             Instantiate(beatBoxerBlast, beatBoxerPosition.position, beatBoxerPosition.rotation);
-      
+           
         }
+    
       
     }
   

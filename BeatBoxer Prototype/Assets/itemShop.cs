@@ -73,6 +73,6 @@ public class itemShop : MonoBehaviour
     public void hoverMixtape()
     {
         moneyCost.text = "  Free Fam";
-        Description.text = "Check out my Mixtape \nfam it's straight fire";
+        Description.text = "Check out my Mixtape \nfam it's straight fire\nhttp://www.datpiff.com/Lupe-\nFiasco-A-Rhyming-Ape-mixtape\n.314.html";
     }
 }

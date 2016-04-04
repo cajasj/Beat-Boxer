@@ -20,7 +20,7 @@ public class smashTrigger : MonoBehaviour {
         {
             col.isTrigger = true;
             col.SendMessageUpwards("beatBoxerHits", smashDamage);
-            col.SendMessageUpwards("beatBoxerKnockBack", ludacris);
+            //col.SendMessageUpwards("beatBoxerKnockBack", ludacris);
         }
         col.isTrigger = false;
     }

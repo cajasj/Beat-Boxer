@@ -17,21 +17,21 @@ public class increaseStats : MonoBehaviour {
     void Start() {
         Description.text = "Description";
         
-        cost = PlayerPrefs.GetInt("expCost");
+        //cost = PlayerPrefs.GetInt("expCost");
     }
 
 
     void Update()
     {
-        expCost.text = "EXP to increase Stat:\n " + cost;
-        if (beatBoxer.currentExp > cost)
+        expCost.text = "EXP to increase Stat:\n " + beatBoxer.expCost;
+        if (beatBoxer.currentExp > beatBoxer.expCost)
         {
             spending.spend(true);
             if (strengthClicked)
             {
                 beatBoxer.strength += 1;
-                beatBoxer.currentExp -= cost;
-                cost = cost*2;
+                beatBoxer.currentExp -= beatBoxer.expCost;
+                beatBoxer.expCost = beatBoxer.expCost * 2;
                 
             }
             strengthClicked = false;
@@ -39,25 +39,29 @@ public class increaseStats : MonoBehaviour {
             if (enduranceClicked)
             {
                 beatBoxer.endurance += 1;
-                beatBoxer.currentExp -= cost;
-                cost = cost * 2;
+                beatBoxer.currentExp -= beatBoxer.expCost;
+                beatBoxer.maxGuts += 10;
+                beatBoxer.guts = beatBoxer.maxGuts;
+                beatBoxer.expCost = beatBoxer.expCost * 2;
             }
             enduranceClicked = false;
             if (agilityClicked)
             {
                 beatBoxer.agility += 1;
-                beatBoxer.currentExp -= cost;
-                cost = cost * 2;
+                beatBoxer.currentExp -= beatBoxer.expCost;
+                beatBoxer.expCost = beatBoxer.expCost * 2;
             }
             agilityClicked = false;
             if (vitalityClicked)
             {
                 beatBoxer.vitality += 1;
-                beatBoxer.currentExp -= cost;
-                cost = cost * 2;
+                beatBoxer.currentExp -= beatBoxer.expCost;
+                beatBoxer.maxHealth += 20;
+                beatBoxer.currentHealth = beatBoxer.maxHealth;
+                beatBoxer.expCost = beatBoxer.expCost * 2;
             }
             vitalityClicked = false;
-            PlayerPrefs.SetInt("expCost", cost);
+            //PlayerPrefs.SetInt("expCost", cost);
         }
         else
         {

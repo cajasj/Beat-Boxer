@@ -6,7 +6,7 @@ public class enogeeBlastScript : MonoBehaviour {
     private float attackCoolDown = .5f;
     private float attackTimer;
     private Animator anim;
-    private float gutsUsed = 10.33f;
+    private float gutsUsed;
     private comboSystemClass keyWumboCombo = new comboSystemClass(new string[] { "Crouch", "Vertical", "Horizontal", "Light Punch"});
     private float comboReset;
     private bool completeWumboCombo = false;
@@ -30,16 +30,16 @@ public class enogeeBlastScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
         
-        if (keyWumboCombo.check() && !enogeeBlast)
-        {
+        if (beatBoxerStats.guts > (beatBoxerStats.maxGuts / 2) )       {
+            if (keyWumboCombo.check() && !enogeeBlast)
+            {
 
-            //anim.SetBool("jabAttack", noJab);
-            StartCoroutine(delayAttack());
-           
+                //anim.SetBool("jabAttack", noJab);
+                StartCoroutine(delayAttack());
+
+            }
         }
-
 
         if (enogeeBlast)
         {
@@ -78,6 +78,7 @@ public class enogeeBlastScript : MonoBehaviour {
             enogeeBlast = false;
             SendMessageUpwards("inputFlag", false);
             noJab = true;
+            beatBoxerStats.guts -= (beatBoxerStats.maxGuts / 2);
         }
     }
 

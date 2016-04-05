@@ -13,8 +13,8 @@ public class userInterface : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
-        healthPoint.text = myStats.currentHealth.ToString();
-        gutsu.text = myStats.guts.ToString();
+        healthPoint.text = PlayerPrefs.GetInt("health").ToString();
+        gutsu.text = PlayerPrefs.GetInt("guts").ToString();
         myMoney.text = "$" + PlayerPrefs.GetInt("money");
         myEXP.text = PlayerPrefs.GetInt("exp").ToString();
     }
@@ -23,9 +23,9 @@ public class userInterface : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        myGuts = (int)myStats.guts;
-        healthPoint.text = myStats.currentHealth.ToString();
-        gutsu.text = myGuts.ToString();
+        //myGuts = (int)myStats.guts;
+        healthPoint.text = PlayerPrefs.GetInt("health").ToString();
+        gutsu.text = PlayerPrefs.GetInt("guts").ToString();
         if (givePlayer)
         {
             myMoney.text= "$" + myStats.currentMoney;

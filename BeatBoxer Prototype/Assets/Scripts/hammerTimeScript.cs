@@ -31,16 +31,17 @@ public class hammerTimeScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
-
-        if (keyWumboCombo.check() && !hammerTime)
+        if (beatBoxerStats.guts > 30)
         {
 
-            Debug.Log("success");
-            onlyAttack();
-            StartCoroutine(preventFlicker());
-        }
+            if (keyWumboCombo.check() && !hammerTime)
+            {
 
+                Debug.Log("success");
+                onlyAttack();
+                StartCoroutine(preventFlicker());
+            }
+        }
 
         if (hammerTime)
         {
@@ -88,13 +89,13 @@ public class hammerTimeScript : MonoBehaviour {
     IEnumerator preventFlicker()
     {
 
-        yield return new WaitForSeconds(.53f);
+        yield return new WaitForSeconds(1.1f);
         stayoff = false;
         hammerTimeTrigger.enabled = false;
     }
     IEnumerator delayAttack()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.35f);
 
         hammerTimeTrigger.enabled = true;
         stayoff = true;

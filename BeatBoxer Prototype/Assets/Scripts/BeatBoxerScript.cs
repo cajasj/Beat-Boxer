@@ -3,8 +3,7 @@ using System.Collections;
 using System;
 
 public class BeatBoxerScript : MonoBehaviour {
-
-    public int maxHealth = 40;
+    public int maxHealth = 70;
     public int currentHealth;
     public int currentExp;
     public int currentMoney;
@@ -53,6 +52,7 @@ public class BeatBoxerScript : MonoBehaviour {
     public enogeeBlastScript enogeeBlast;
     public blastScript enogeeAttack;
     public bossScript enemyObject;
+    public int expCost;
     //public GameObject boss;
     private bool knock = false;
     //public enogeeBlastScript enogeeBlast;
@@ -78,16 +78,19 @@ public class BeatBoxerScript : MonoBehaviour {
             PlayerPrefs.DeleteAll();
             currentHealth = maxHealth;
             guts = maxGuts;
+            expCost = 5;
         }
         else
         {
-            
+            expCost = PlayerPrefs.GetInt("expCost");
             currentExp = PlayerPrefs.GetInt("exp");
             currentMoney = PlayerPrefs.GetInt("money");
             strength = PlayerPrefs.GetInt("strength");
             agility = PlayerPrefs.GetInt("agility");
             endurance = PlayerPrefs.GetInt("endurance");
             vitality = PlayerPrefs.GetInt("vitality");
+            maxGuts = PlayerPrefs.GetInt("maxGuts");
+            maxHealth = PlayerPrefs.GetInt("maxHealth");
             currentHealth = PlayerPrefs.GetInt("health");
             guts = PlayerPrefs.GetInt("guts");
             combo2 = PlayerPrefs.GetInt("combo2");
@@ -202,10 +205,7 @@ public class BeatBoxerScript : MonoBehaviour {
             SendMessageUpwards("noInteruption", stop);
         }
 
-        if (vitality > maxVit)
-        {
-            newMaxHealth();
-        }
+      
         if (endurance > maxEnd)
         {
             newMaxGuts();
@@ -286,16 +286,10 @@ public class BeatBoxerScript : MonoBehaviour {
     }
     public void newMaxGuts()
     {
-        maxGuts += 10;
-        guts = maxGuts;
+      
         maxEnd = endurance;
     }
-    public void newMaxHealth()
-    {
-        maxHealth += 20;
-        maxVit = vitality;
-        currentHealth = maxHealth;
-    }
+ 
     //public void beatBoxerKnockBack(float ludacrisGetBack)
     //{
     //    luda = ludacrisGetBack;
@@ -319,7 +313,7 @@ public class BeatBoxerScript : MonoBehaviour {
     //    knockbackTimer = knockbackDuration;
     //    myRigidBody.isKinematic = false;
     //    knock = true;
-   
+
     //}
     IEnumerator staminaDrain()
     {

@@ -35,14 +35,16 @@ public class uppercutAttack : MonoBehaviour
     void Update()
     {
 
-       
+
+        if (beatBoxerStats.guts > 10)
+        {
             if (keyWumboCombo.check() && !upperCut)
             {
-                
+
                 Debug.Log("success");
                 onlyAttack();
             }
-
+        }
 
             if (upperCut)
             {
@@ -91,13 +93,13 @@ public class uppercutAttack : MonoBehaviour
     IEnumerator preventFlicker()
     {
 
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(.5f);
         stayoff = false;
         upperCutTrigger.enabled = false;
     }
     IEnumerator delayAttack()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.53f);
 
         upperCutTrigger.enabled = true;
         stayoff = true;

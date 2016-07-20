@@ -45,11 +45,18 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Completed\Scripts\BoardManager.cs" />
+     <Compile Include="Assets\Completed\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Completed\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Completed\Scripts\Loader.cs" />
+     <Compile Include="Assets\Completed\Scripts\MovingObject.cs" />
      <Compile Include="Assets\Scripts\BeatBoxerScript.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
+     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\afterDefeat.cs" />
      <Compile Include="Assets\Scripts\barScript.cs" />
      <Compile Include="Assets\Scripts\bbAttack.cs" />
+     <Compile Include="Assets\Scripts\benza.cs" />
      <Compile Include="Assets\Scripts\benzaAttack.cs" />
      <Compile Include="Assets\Scripts\benzaTrigger.cs" />
      <Compile Include="Assets\Scripts\bossAttack1.cs" />
@@ -87,6 +94,7 @@
      <Compile Include="Assets\blastScript.cs" />
      <Compile Include="Assets\enogeeBlastScript.cs" />
      <Compile Include="Assets\findBlast.cs" />
+     <Compile Include="Assets\hammerTime.cs" />
      <Compile Include="Assets\healthPackScript.cs" />
      <Compile Include="Assets\hulkSmashTrigger.cs" />
      <Compile Include="Assets\itemShop.cs" />
@@ -96,11 +104,17 @@
      <Compile Include="Assets\smashTrigger.cs" />
      <Compile Include="Assets\statsComboEquip.cs" />
      <None Include="Assets\Fonts\OFL.txt" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

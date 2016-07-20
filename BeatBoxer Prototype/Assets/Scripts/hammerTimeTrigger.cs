@@ -25,6 +25,7 @@ public class hammerTimeTrigger : MonoBehaviour {
         {
             col.isTrigger = true;
             col.SendMessageUpwards("underAttack", hammerTimeDamage + beatboxerStrength.strength);
+            Debug.Log(hammerTimeDamage);
             col.SendMessageUpwards("knockMeBack", ludacris);
         }
         col.isTrigger = false;

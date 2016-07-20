@@ -43,7 +43,7 @@ public class pauseMenu : MonoBehaviour {
         if (beatBoxerStats.combo2==1)
         {
             comboName2.text = "Hammer Time";
-            comboInput2.text = "Left/Right, Right/Left, Crouch, I";
+            comboInput2.text = "Left/Right, Right/Left, I, Crouch";
         }
         if (beatBoxerStats.combo3 == 1)
         {

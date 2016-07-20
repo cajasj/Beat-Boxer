@@ -28,7 +28,7 @@ public class enemySpawn : MonoBehaviour {
             float y2 = transform.position.y- rend.bounds.size.y ;
             y1 -= 3;
             y2 += 3;
-            Debug.Log(GetComponent<Renderer>().bounds.size.y);
+
             // Randomly pick a point within the spawn object
             var spawnPoint = new Vector2(transform.position.x, Random.Range(y1, y2) );
             spawnCount++;

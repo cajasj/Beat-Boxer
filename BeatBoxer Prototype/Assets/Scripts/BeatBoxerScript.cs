@@ -22,7 +22,7 @@ public class BeatBoxerScript : MonoBehaviour {
     public bool facingRight;
     public bool stop = true;
     public bool rollInitiate = false;
-    public int mixtapeOn;
+    public int mixtapeOn=1;
     public bool mixtapeBool;
     // public BoxCollider2D offOn;
     public Vector3 playerPos;
@@ -44,8 +44,8 @@ public class BeatBoxerScript : MonoBehaviour {
     public shop[] shoppingList;
     public GameObject enemy;
     public afterDefeat beaten;
-    public int combo2;
-    public int combo3;
+    public int combo2=1;
+    public int combo3=1;
     public int mixtape;
     public hammerTimeScript hammerTime;
     public hammerTimeTrigger hammerTimeTrig;
@@ -76,6 +76,7 @@ public class BeatBoxerScript : MonoBehaviour {
        // offOn = GetComponent<BoxCollider2D>();
         if (Application.loadedLevel == 1) {
             PlayerPrefs.DeleteAll();
+
             currentHealth = maxHealth;
             guts = maxGuts;
             expCost = 5;
@@ -104,10 +105,16 @@ public class BeatBoxerScript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         checkPurchase();
+        ////////////////////////////
+        ///////Unlock/////////////
+        /////////////////////////
+        combo2 = 1;
+        combo3 = 1;
+        mixtape = 1;
+        mixtapeOn = 1;
         ////////////////////
         ////X Y Movement///
-        //////////////////  
-
+        //////////////////
         //Debug.Log(mixtapeOn);
 
         x = Input.GetAxis("Horizontal");
@@ -175,7 +182,7 @@ public class BeatBoxerScript : MonoBehaviour {
                     beatBoxerMovement.SetBool("rolling", true);
 
                     Physics2D.IgnoreLayerCollision(11, 12, true);
-
+                    Physics2D.IgnoreLayerCollision(11, 14, true);
 
                     StartCoroutine("staminaDrain");
 
@@ -195,6 +202,7 @@ public class BeatBoxerScript : MonoBehaviour {
         else
         {
             Physics2D.IgnoreLayerCollision(11, 12, false);
+            Physics2D.IgnoreLayerCollision(11, 14, false);
             regenGutsOn = true;
             //rollOn = false;
             rollInitiate = false;

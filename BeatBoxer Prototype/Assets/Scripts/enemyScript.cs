@@ -26,6 +26,8 @@ public class enemyScript : MonoBehaviour {
     private bool stopit;
     // Use this for initialization
     void Start () {
+        Physics2D.IgnoreLayerCollision(12 , 12, true);
+
         enemeyRigidBody = GetComponent<Rigidbody2D>();
         enemeyRigidBody.isKinematic = true;
         currHealth = maxHealth;

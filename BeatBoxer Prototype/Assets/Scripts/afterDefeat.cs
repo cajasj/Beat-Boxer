@@ -16,7 +16,10 @@ public class afterDefeat : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (defeated)
+
         {
+
+            //beatBoxerHealth.beatBoxerMovement.SetBool("noHealth", true);
             pauseCanvas.SetActive(true);
             panel.SetActive(true);
             Time.timeScale = 0f;
